@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Étudier en Russie et en Biélorussie – Visa Study Maroc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Feuille de style commune à toutes les pages (mobile first) */
+:root{
+  --navy:#0a1f44; --navy-2:#12315f; --blue:#1a56db; --blue-soft:#e8f0fe;
+  --ink:#0f172a; --muted:#5b6478; --line:#e5e9f0; --bg:#ffffff; --bg-alt:#f5f7fb;
+  --green:#22c55e; --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.15rem;color:var(--navy)}
+.logo span{color:var(--blue)}
+.nav{display:none;gap:28px;font-weight:600;font-size:.95rem}
+.nav a:hover{color:var(--blue)}
+.menu-btn{background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--navy)}
+.nav.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:#fff;padding:16px 20px;border-bottom:1px solid var(--line)}
+
+/* Hero */
+.hero{padding:20px 0 0}
+.hero-card{background:var(--navy);color:#fff;border-radius:20px;padding:32px 24px}
+.badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;font-weight:800;margin:18px 0 14px}
+.hero p.lead{color:#b9c6df;max-width:52ch}
+.btns{display:flex;flex-direction:column;gap:12px;margin:26px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:10px;font-weight:700;font-size:.98rem;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1445b4}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-wa{background:var(--green);color:#fff}
+.countries{display:grid;gap:12px}
+.country{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+.country strong{display:block;font-size:1rem}
+.country span{font-size:.85rem;color:#b9c6df}
+
+/* Sections */
+section{padding:56px 0}
+.eyebrow{color:var(--blue);font-weight:700;font-size:.8rem;margin-bottom:8px}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1.2;font-weight:800;color:var(--navy);margin-bottom:14px}
+.section-intro{color:var(--muted);max-width:60ch}
+
+/* Mentorat */
+.mentor-visual{margin-top:28px;border-radius:18px;overflow:hidden;position:relative;min-height:260px;
+  background:linear-gradient(135deg,var(--navy-2),var(--navy));color:#fff;display:flex;align-items:flex-end}
+.mentor-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mentor-caption{position:relative;padding:24px;background:linear-gradient(transparent,rgba(10,31,68,.9));width:100%}
+.mentor-caption small{display:block;font-size:.78rem;color:#b9c6df;margin-bottom:4px}
+.mentor-caption h3{font-size:1.4rem;line-height:1.25}
+.mentor-note{margin-top:16px;color:var(--muted);font-size:.95rem}
+
+/* Services */
+.services{background:var(--bg-alt)}
+.grid{display:grid;gap:18px;margin-top:32px}
+.service{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.icon{width:44px;height:44px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-size:1.3rem;margin-bottom:14px}
+.service h3{font-size:1.1rem;color:var(--navy);margin-bottom:6px}
+.service p{color:var(--muted);font-size:.93rem}
+
+/* CTA */
+.cta{background:var(--navy);color:#fff;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#b9c6df;max-width:56ch;margin:0 auto}
+.cta .btns{max-width:420px;margin:28px auto 0}
+
+/* Footer */
+footer{background:#071634;color:#8fa0c2;text-align:center;font-size:.82rem;padding:24px 0}
+
+@media (min-width:720px){
+  .menu-btn{display:none}
+  .nav{display:flex}
+  .hero-card{padding:56px 48px}
+  .btns{flex-direction:row}
+  .countries{grid-template-columns:1fr 1fr;max-width:560px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .mentor{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .mentor-visual{margin-top:0;min-height:340px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.nav a.active{color:var(--blue);border-bottom:2px solid var(--blue)}
+.page-hero{background:var(--navy);color:#fff;padding:48px 0}
+.page-hero h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:10px}
+.page-hero p{color:#b9c6df;max-width:60ch}
+.dest-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.dest-card h3{font-size:1.4rem;color:var(--navy);margin-bottom:8px}
+.dest-card p{color:var(--muted);margin-bottom:14px}
+.dest-card ul{list-style:none;display:grid;gap:8px;font-size:.93rem}
+.dest-card li::before{content:"✓ ";color:var(--blue);font-weight:700}
+form.contact{display:grid;gap:16px;max-width:640px;margin-top:28px}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:.9rem;color:var(--navy)}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid #cbd3e1;border-radius:10px;font:inherit;background:#fff}
+.field textarea{min-height:120px;resize:vertical}
+.row2{display:grid;gap:16px}
+@media (min-width:720px){.row2{grid-template-columns:1fr 1fr}.dest-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}}
+
+.hdr-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;padding:6px 12px;font:inherit;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+
+html[lang="ar"] body{font-family:"Cairo","Plus Jakarta Sans",system-ui,sans-serif}
+html[lang="ar"] .eyebrow,html[lang="ar"] .badge{letter-spacing:0}
+.lang,.logo{direction:ltr}
+/*hero-carousel*/
+.hero-card{position:relative;overflow:hidden;isolation:isolate;background:var(--navy)}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.2s ease,transform 6s ease-out}
+.slide.active{opacity:1;transform:scale(1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,68,.82) 0%,rgba(10,31,68,.92) 100%)}
+.hero-content{position:relative}
+.hero-card .country{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero-dots{position:absolute;top:20px;inset-inline-end:20px;display:flex;gap:8px;z-index:2}
+.hero-dots button{width:10px;height:10px;padding:0;border:0;border-radius:999px;background:rgba(255,255,255,.45);cursor:pointer;transition:width .3s,background .3s}
+.hero-dots button.active{width:26px;background:#fff}
+@media (min-width:720px){
+  .hero-overlay{background:linear-gradient(90deg,rgba(10,31,68,.95) 0%,rgba(10,31,68,.78) 50%,rgba(10,31,68,.3) 100%)}
+  html[dir="rtl"] .hero-overlay{background:linear-gradient(270deg,rgba(10,31,68,.95) 0%,rgba(10,31,68,.78) 50%,rgba(10,31,68,.3) 100%)}
+}
+@media (prefers-reduced-motion:reduce){.slide{transition:opacity .01s;transform:none}}
+/*nav-pill*/
+:root{--nav-active:#cfe0ff;--nav-shadow:0 8px 24px rgba(26,86,219,.14)}
+.site-header{background:rgba(245,247,251,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:0}
+.site-header .container{height:auto;min-height:76px;padding-top:10px;padding-bottom:10px;gap:12px}
+/* Emplacement du logo : mettez votre fichier dans images/logo.png */
+.logo{display:flex;align-items:center;min-width:100px;height:48px}
+.logo-img{height:70px;width:auto;display:block}
+.logo-text{font-weight:800;font-size:1.15rem;color:var(--navy)}
+.logo-text span{color:var(--blue)}
+.logo-img[hidden],.logo-text[hidden]{display:none}
+/* Navbar en forme de pilule */
+.nav{display:none;gap:4px;padding:8px;background:#fff;border-radius:999px;box-shadow:var(--nav-shadow);font-weight:700;font-size:.95rem}
+.nav a{padding:12px 24px;border-radius:999px;color:var(--ink);border-bottom:0;white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover{background:#f1f5fb;color:var(--navy)}
+.nav a.active{background:var(--nav-active);color:var(--navy);border-bottom:0}
+.nav.open{display:flex;flex-direction:column;position:absolute;top:calc(100% - 4px);left:20px;right:20px;padding:10px;border-radius:24px;text-align:center;z-index:30}
+.hdr-right .lang{background:#fff;border:0;box-shadow:var(--nav-shadow)}
+.menu-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;background:#fff;box-shadow:var(--nav-shadow);font-size:1.3rem}
+@media (min-width:900px){
+  .site-header .container{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+  .nav{display:flex}
+  .menu-btn{display:none}
+  .hdr-right{justify-self:end}
+}
+@media (min-width:1000px){.nav a{padding:12px 30px}}
+/*mentor-gradient*/
+.mentor-visual{isolation:isolate}
+.mentor-visual img{z-index:0}
+.mentor-visual::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,
+    rgba(10,31,68,.94) 0%,rgba(10,31,68,.88) 14%,rgba(10,31,68,.76) 28%,
+    rgba(10,31,68,.58) 42%,rgba(10,31,68,.38) 56%,rgba(10,31,68,.18) 70%,
+    rgba(10,31,68,.06) 84%,rgba(10,31,68,0) 100%)}
+.mentor-caption{position:relative;z-index:2;background:none;padding:28px 24px 24px}
+.mentor-caption small{color:#e3ecff;font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.mentor-caption h3{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+
+/* ===== Corrections responsive ===== */
+/* "clip" empêche le défilement horizontal SANS casser le header collant (sticky) */
+body{overflow-x:clip}
+.lang button{min-height:34px}
+.nav.open a{display:block}
+@media (max-width:480px){
+  section{padding:40px 0}
+  .container{padding:0 16px}
+  .site-header .container{min-height:68px}
+  .logo{min-width:80px}
+  .logo-img{height:52px}
+  .lang button{padding:6px 9px}
+  .nav.open{left:16px;right:16px}
+  .hero-card{padding:26px 18px;border-radius:16px}
+  .hero-content{padding-top:18px}
+  .hero-dots{top:14px;inset-inline-end:14px}
+  .btn{width:100%}
+  .mentor-visual{min-height:240px}
+  .mentor-caption{padding:22px 18px 18px}
+}
+@media (max-width:360px){
+  .logo-img{height:44px}
+  .hdr-right{gap:8px}
+  .lang button{padding:6px 7px;font-size:.72rem}
+  .menu-btn{width:40px;height:40px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="Visa Study">
+      <!-- Votre logo : placez-le dans images/logo.png. Tant qu'il est absent, le nom s'affiche en texte. -->
+      <img src="images/logo.png" alt="Visa Study" class="logo-img" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+      <span class="logo-text" hidden>Visa <span>Study</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html" class="active" aria-current="page">Accueil</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="services.html">Filières</a>
+      <a href="realisations.html">Réalisations</a>
+      <a href="contact.html">Formulaire</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false">AR</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <div class="hero container" id="destinations">
+    <div class="hero-card">
+      <!-- Carrousel d'arrière-plan : changez les chemins des images (ajoutez ou retirez des .slide, et les points correspondants) -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="slide active" style="background-image:url('images/image1.png')"></div>
+        <div class="slide" style="background-image:url('images/image2.png')"></div>
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-dots" role="group" aria-label="Photos">
+        <button type="button" class="active" aria-label="Photo 1"></button>
+        <button type="button" aria-label="Photo 2"></button>
+      </div>
+      <div class="hero-content">
+      <span class="badge">ACCOMPAGNEMENT UNIVERSITAIRE OFFICIEL</span>
+      <h1>Votre avenir commence ici</h1>
+      <p class="lead">Nous vous accompagnons dans votre projet d’études en Russie et en Biélorussie, de l’orientation académique jusqu’à votre installation sereine.</p>
+      <div class="btns">
+        <a href="destinations.html" class="btn btn-primary">Découvrir nos destinations →</a>
+        <a href="contact.html" class="btn btn-light">Remplir le formulaire</a>
+      </div>
+      <div class="countries">
+        <div class="country"><strong>🇷🇺 Russie</strong><span>Excellence médicale &amp; ingénierie de réputation mondiale.</span></div>
+        <div class="country"><strong>🇧🇾 Biélorussie</strong><span>Cadre d’études paisible, sécurisé et frais de vie abordables.</span></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mentorat -->
+  <section id="accompagnement">
+    <div class="container mentor">
+      <div>
+        <p class="eyebrow">MENTORAT &amp; BIENVEILLANCE</p>
+        <h2>Un accompagnement à chaque étape de votre projet</h2>
+        <p class="section-intro">Partir étudier à l'étranger représente une décision déterminante pour les jeunes bacheliers et leurs parents au Maroc. Notre mission repose sur une écoute attentive, une transparence sans faille et une rigueur méthodologique totale.</p>
+        <p class="mentor-note">Notre équipe analyse le profil de chaque bachelier et l'oriente vers les filières les plus adaptées en toute transparence.</p>
+      </div>
+      <div class="mentor-visual">
+        <img src="images/photo3.png" alt="Conseillers Visa Study à Rabat" loading="lazy" decoding="async">
+        <div class="mentor-caption">
+          <small>Conseil &amp; Écoute personnalisée · Visa Study Maroc</small>
+          <h3>Un accompagnement humain à Rabat &amp; Casablanca</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="eyebrow">EXPERTISE DE BOUT EN BOUT</p>
+      <h2>Nos services dédiés</h2>
+      <p class="section-intro">Une prise en charge humaine et méthodique pour transformer chaque démarche complexe en une expérience fluide.</p>
+
+      <div class="grid">
+        <article class="service">
+          <div class="icon" aria-hidden="true">🎓</div>
+          <h3>1. Orientation académique</h3>
+          <p>Évaluation approfondie de votre parcours pour identifier les filières et universités d'État correspondant à votre profil et votre vocation.</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">🌍</div>
+          <h3>2. Choix du pays &amp; spécialité</h3>
+          <p>Analyse comparative détaillée entre la Russie et la Biélorussie (langue d'enseignement, coût des études, environnement de vie).</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">🏛️</div>
+          <h3>3. Inscription universitaire</h3>
+          <p>Gestion rigoureuse des correspondances officielles avec les bureaux rectoraux jusqu'à l'obtention de votre lettre d'admission.</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">📄</div>
+          <h3>4. Préparation documentaire</h3>
+          <p>Aide exhaustive aux démarches d'apostille, traductions assermentées en russe et légalisations conformes aux standards consulaires.</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">🛂</div>
+          <h3>5. Démarches consulaires &amp; visa</h3>
+          <p>Constitution méthodique du dossier de demande de visa étudiant, simulation d'entretien et vérification scrupuleuse des justificatifs.</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">🏠</div>
+          <h3>6. Logement &amp; installation</h3>
+          <p>Réservation du foyer universitaire (obshchezhitie), accueil à l'aéroport par un coordinateur local et soutien aux formalités d'enregistrement.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Besoin d'un accompagnement personnalisé ?</h2>
+      <p>Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.</p>
+      <div class="btns">
+        <a href="contact.html" class="btn btn-primary">Demander une consultation gratuite</a>
+        <a href="https://wa.me/212629713827" class="btn btn-wa" target="_blank" rel="noopener">Contacter par WhatsApp : +212 629 713 827</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Visa Study Maroc. Tous droits réservés.</p>
+    <p>Accompagnement universitaire officiel • Maroc • Russie • Biélorussie</p>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  /* Ferme le menu mobile après un clic sur un lien */
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+<script>
+  /* Traduction FR / EN / AR : le HTML reste en français, ce dictionnaire donne les autres langues.
+     Traduit les textes ET les attributs alt, aria-label, placeholder, title. */
+  const DICT = {
+ "en": {
+  "Accueil": "Home",
+  "Destinations": "Destinations",
+  "Filières": "Programs",
+  "Réalisations": "Achievements",
+  "Formulaire": "Form",
+  "Navigation principale": "Main navigation",
+  "Ouvrir le menu": "Open menu",
+  "Photos": "Photos",
+  "Photo 1": "Photo 1",
+  "Photo 2": "Photo 2",
+  "Conseillers Visa Study à Rabat": "Visa Study advisors in Rabat",
+  "ACCOMPAGNEMENT UNIVERSITAIRE OFFICIEL": "OFFICIAL UNIVERSITY SUPPORT",
+  "Votre avenir commence ici": "Your future starts here",
+  "Nous vous accompagnons dans votre projet d’études en Russie et en Biélorussie, de l’orientation académique jusqu’à votre installation sereine.": "We support you in your plan to study in Russia and Belarus, from academic guidance to a smooth settling-in.",
+  "Découvrir nos destinations →": "Discover our destinations →",
+  "Remplir le formulaire": "Fill in the form",
+  "🇷🇺 Russie": "🇷🇺 Russia",
+  "Excellence médicale & ingénierie de réputation mondiale.": "Medical excellence & world-renowned engineering.",
+  "🇧🇾 Biélorussie": "🇧🇾 Belarus",
+  "Cadre d’études paisible, sécurisé et frais de vie abordables.": "A peaceful, safe study environment with affordable living costs.",
+  "MENTORAT & BIENVEILLANCE": "MENTORING & CARE",
+  "Un accompagnement à chaque étape de votre projet": "Support at every step of your plan",
+  "Partir étudier à l'étranger représente une décision déterminante pour les jeunes bacheliers et leurs parents au Maroc. Notre mission repose sur une écoute attentive, une transparence sans faille et une rigueur méthodologique totale.": "Studying abroad is a defining decision for young high-school graduates and their parents in Morocco. Our mission is built on attentive listening, complete transparency and rigorous methodology.",
+  "Notre équipe analyse le profil de chaque bachelier et l'oriente vers les filières les plus adaptées en toute transparence.": "Our team analyses each student's profile and guides them, with full transparency, towards the most suitable programs.",
+  "Conseil & Écoute personnalisée · Visa Study Maroc": "Personalised advice & listening · Visa Study Morocco",
+  "Un accompagnement humain à Rabat & Casablanca": "Human support in Rabat & Casablanca",
+  "EXPERTISE DE BOUT EN BOUT": "END-TO-END EXPERTISE",
+  "Nos services dédiés": "Our dedicated services",
+  "Une prise en charge humaine et méthodique pour transformer chaque démarche complexe en une expérience fluide.": "A human and methodical approach that turns every complex procedure into a smooth experience.",
+  "1. Orientation académique": "1. Academic guidance",
+  "Évaluation approfondie de votre parcours pour identifier les filières et universités d'État correspondant à votre profil et votre vocation.": "In-depth review of your background to identify the programs and state universities that match your profile and vocation.",
+  "2. Choix du pays & spécialité": "2. Choice of country & specialty",
+  "Analyse comparative détaillée entre la Russie et la Biélorussie (langue d'enseignement, coût des études, environnement de vie).": "Detailed comparison between Russia and Belarus (language of instruction, cost of studies, living environment).",
+  "3. Inscription universitaire": "3. University enrolment",
+  "Gestion rigoureuse des correspondances officielles avec les bureaux rectoraux jusqu'à l'obtention de votre lettre d'admission.": "Careful handling of official correspondence with the rectors' offices until you receive your admission letter.",
+  "4. Préparation documentaire": "4. Document preparation",
+  "Aide exhaustive aux démarches d'apostille, traductions assermentées en russe et légalisations conformes aux standards consulaires.": "Complete help with apostille procedures, sworn translations into Russian and legalisations that meet consular standards.",
+  "5. Démarches consulaires & visa": "5. Consular procedures & visa",
+  "Constitution méthodique du dossier de demande de visa étudiant, simulation d'entretien et vérification scrupuleuse des justificatifs.": "Methodical preparation of your student visa application, interview simulation and careful checking of supporting documents.",
+  "6. Logement & installation": "6. Housing & settling in",
+  "Réservation du foyer universitaire (obshchezhitie), accueil à l'aéroport par un coordinateur local et soutien aux formalités d'enregistrement.": "Booking of university dormitory (obshchezhitie), airport pick-up by a local coordinator and help with registration formalities.",
+  "Besoin d'un accompagnement personnalisé ?": "Need personalised support?",
+  "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.": "Our advisors see you by appointment or answer your questions right away on WhatsApp.",
+  "Demander une consultation gratuite": "Request a free consultation",
+  "Contacter par WhatsApp : +212 629 713 827": "Contact us on WhatsApp: +212 629 713 827",
+  "© 2025 Visa Study Maroc. Tous droits réservés.": "© 2025 Visa Study Morocco. All rights reserved.",
+  "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie": "Official university support • Morocco • Russia • Belarus"
+ },
+ "ar": {
+  "Accueil": "الرئيسية",
+  "Destinations": "الوجهات",
+  "Filières": "التخصصات",
+  "Réalisations": "إنجازاتنا",
+  "Formulaire": "الاستمارة",
+  "Navigation principale": "التنقل الرئيسي",
+  "Ouvrir le menu": "فتح القائمة",
+  "Photos": "الصور",
+  "Photo 1": "الصورة 1",
+  "Photo 2": "الصورة 2",
+  "Conseillers Visa Study à Rabat": "مستشارو فيزا ستدي في الرباط",
+  "ACCOMPAGNEMENT UNIVERSITAIRE OFFICIEL": "مواكبة جامعية رسمية",
+  "Votre avenir commence ici": "مستقبلك يبدأ من هنا",
+  "Nous vous accompagnons dans votre projet d’études en Russie et en Biélorussie, de l’orientation académique jusqu’à votre installation sereine.": "نرافقك في مشروع دراستك في روسيا وبيلاروسيا، بدءًا من التوجيه الأكاديمي وحتى استقرارك في أجواء مطمئنة.",
+  "Découvrir nos destinations →": "اكتشف وجهاتنا ←",
+  "Remplir le formulaire": "املأ الاستمارة",
+  "🇷🇺 Russie": "🇷🇺 روسيا",
+  "Excellence médicale & ingénierie de réputation mondiale.": "تميّز في الطب وهندسة ذات سمعة عالمية.",
+  "🇧🇾 Biélorussie": "🇧🇾 بيلاروسيا",
+  "Cadre d’études paisible, sécurisé et frais de vie abordables.": "أجواء دراسة هادئة وآمنة وتكاليف معيشة مناسبة.",
+  "MENTORAT & BIENVEILLANCE": "إرشاد ورعاية",
+  "Un accompagnement à chaque étape de votre projet": "مواكبة في كل مرحلة من مشروعك",
+  "Partir étudier à l'étranger représente une décision déterminante pour les jeunes bacheliers et leurs parents au Maroc. Notre mission repose sur une écoute attentive, une transparence sans faille et une rigueur méthodologique totale.": "قرار الدراسة في الخارج خطوة حاسمة بالنسبة للحاصلين الجدد على الباكالوريا وأولياء أمورهم في المغرب. وتقوم مهمتنا على الإصغاء الجيد، والشفافية التامة، والدقة المنهجية الكاملة.",
+  "Notre équipe analyse le profil de chaque bachelier et l'oriente vers les filières les plus adaptées en toute transparence.": "يدرس فريقنا ملف كل طالب ويوجّهه بكل شفافية نحو التخصصات الأنسب له.",
+  "Conseil & Écoute personnalisée · Visa Study Maroc": "استشارة وإصغاء شخصي · فيزا ستدي المغرب",
+  "Un accompagnement humain à Rabat & Casablanca": "مواكبة إنسانية في الرباط والدار البيضاء",
+  "EXPERTISE DE BOUT EN BOUT": "خبرة شاملة من البداية إلى النهاية",
+  "Nos services dédiés": "خدماتنا المخصصة",
+  "Une prise en charge humaine et méthodique pour transformer chaque démarche complexe en une expérience fluide.": "تكفّل إنساني ومنهجي يحوّل كل إجراء معقّد إلى تجربة سلسة.",
+  "1. Orientation académique": "1. التوجيه الأكاديمي",
+  "Évaluation approfondie de votre parcours pour identifier les filières et universités d'État correspondant à votre profil et votre vocation.": "تقييم معمّق لمسارك الدراسي لتحديد التخصصات والجامعات الحكومية التي تناسب ملفك وميولك.",
+  "2. Choix du pays & spécialité": "2. اختيار البلد والتخصص",
+  "Analyse comparative détaillée entre la Russie et la Biélorussie (langue d'enseignement, coût des études, environnement de vie).": "مقارنة مفصّلة بين روسيا وبيلاروسيا (لغة التدريس، تكلفة الدراسة، بيئة العيش).",
+  "3. Inscription universitaire": "3. التسجيل الجامعي",
+  "Gestion rigoureuse des correspondances officielles avec les bureaux rectoraux jusqu'à l'obtention de votre lettre d'admission.": "متابعة دقيقة للمراسلات الرسمية مع إدارات الجامعات إلى حين الحصول على رسالة القبول.",
+  "4. Préparation documentaire": "4. تحضير الوثائق",
+  "Aide exhaustive aux démarches d'apostille, traductions assermentées en russe et légalisations conformes aux standards consulaires.": "مساعدة شاملة في إجراءات الأبوستيل، والترجمة المحلّفة إلى الروسية، والتصديقات وفق المعايير القنصلية.",
+  "5. Démarches consulaires & visa": "5. الإجراءات القنصلية والتأشيرة",
+  "Constitution méthodique du dossier de demande de visa étudiant, simulation d'entretien et vérification scrupuleuse des justificatifs.": "إعداد منهجي لملف طلب تأشيرة الطالب، ومحاكاة المقابلة، وتدقيق صارم للوثائق الداعمة.",
+  "6. Logement & installation": "6. السكن والاستقرار",
+  "Réservation du foyer universitaire (obshchezhitie), accueil à l'aéroport par un coordinateur local et soutien aux formalités d'enregistrement.": "حجز السكن الجامعي (أوبشيجيتي)، واستقبال في المطار من طرف منسّق محلي، ومساعدة في إجراءات التسجيل.",
+  "Besoin d'un accompagnement personnalisé ?": "هل تحتاج إلى مواكبة شخصية؟",
+  "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.": "يستقبلك مستشارونا بموعد مسبق أو يجيبون عن استفساراتك فورًا عبر واتساب.",
+  "Demander une consultation gratuite": "اطلب استشارة مجانية",
+  "Contacter par WhatsApp : +212 629 713 827": "تواصل معنا عبر واتساب: ⁦+212 629 713 827⁩",
+  "© 2025 Visa Study Maroc. Tous droits réservés.": "© 2025 فيزا ستدي المغرب. جميع الحقوق محفوظة.",
+  "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie": "مواكبة جامعية رسمية • المغرب • روسيا • بيلاروسيا"
+ }
+};
+  const TITLES = {"en": {"Étudier en Russie et en Biélorussie – Visa Study Maroc": "Study in Russia and Belarus – Visa Study Morocco"}, "ar": {"Étudier en Russie et en Biélorussie – Visa Study Maroc": "الدراسة في روسيا وبيلاروسيا – فيزا ستدي المغرب"}};
+  const originals = new WeakMap();      /* textes d'origine (FR) */
+  const attrOriginals = new WeakMap();  /* attributs d'origine (FR) */
+  const ATTRS = ['alt', 'aria-label', 'placeholder', 'title'];
+  const frTitle = document.title;
+
+  function applyLang(lang) {
+    /* 1. Textes */
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => {
+      if (['SCRIPT', 'STYLE'].includes(n.parentElement.tagName)) return;
+      if (!originals.has(n)) originals.set(n, n.nodeValue);
+      const original = originals.get(n);
+      if (lang === 'fr') { n.nodeValue = original; return; }
+      const key = original.trim().replace(/\s+/g, ' ');
+      const t = DICT[lang][key];
+      if (t) n.nodeValue = original.replace(/\S[\s\S]*\S|\S/, t);
+    });
+    /* 2. Attributs (alt, aria-label, placeholder, title) */
+    document.querySelectorAll('[alt],[aria-label],[placeholder],[title]').forEach(el => {
+      const saved = attrOriginals.get(el) || {};
+      ATTRS.forEach(a => {
+        if (!el.hasAttribute(a)) return;
+        if (!(a in saved)) saved[a] = el.getAttribute(a);
+        const key = saved[a].trim().replace(/\s+/g, ' ');
+        el.setAttribute(a, lang === 'fr' ? saved[a] : (DICT[lang][key] || saved[a]));
+      });
+      attrOriginals.set(el, saved);
+    });
+    /* 3. Titre, langue, sens d'écriture */
+    document.title = lang === 'fr' ? frTitle : ((TITLES[lang] && TITLES[lang][frTitle]) || frTitle);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang button').forEach(b =>
+      b.setAttribute('aria-pressed', b.dataset.lang === lang));
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang button').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+  let saved = 'fr';
+  try { saved = localStorage.getItem('lang') || 'fr'; } catch (e) {}
+  if (saved === 'en' || saved === 'ar') applyLang(saved);
+</script>
+<script>
+  /* Carrousel du hero : changement automatique toutes les 5 s, points cliquables */
+  (function () {
+    var slides = document.querySelectorAll('.hero-bg .slide');
+    var dots = document.querySelectorAll('.hero-dots button');
+    if (slides.length < 2) return;
+    var current = 0, timer = null;
+    function show(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach(function (s, k) { s.classList.toggle('active', k === current); });
+      dots.forEach(function (d, k) { d.classList.toggle('active', k === current); });
+    }
+    function start() {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      stop();
+      timer = setInterval(function () { show(current + 1); }, 5000);
+    }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); start(); }); });
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    start();
+  })();
+</script>
+</body>
+</html>

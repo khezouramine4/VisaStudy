@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Mot du Fondateur & Notre Proximité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== Styles communs (identiques à l'index) ===== */
+:root{--navy:#0a1f44;--navy-2:#12315f;--blue:#1a56db;--blue-soft:#e8f0fe;--ink:#0f172a;--muted:#5b6478;--line:#e5e9f0;--bg:#fff;--bg-alt:#f5f7fb;--green:#22c55e;--radius:14px;--nav-active:#cfe0ff;--nav-shadow:0 8px 24px rgba(26,86,219,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+.eyebrow{color:var(--blue);font-weight:700;font-size:.8rem;margin-bottom:8px}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1.2;font-weight:800;color:var(--navy);margin-bottom:14px}
+.section-intro{color:var(--muted);max-width:60ch}
+html[lang="ar"] body{font-family:"Cairo","Plus Jakarta Sans",system-ui,sans-serif}
+html[lang="ar"] .eyebrow,html[lang="ar"] .badge{letter-spacing:0}
+
+/* Header / navbar pilule */
+.site-header{position:sticky;top:0;z-index:20;background:rgba(245,247,251,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;min-height:76px;padding-top:10px;padding-bottom:10px;gap:12px}
+.logo{display:flex;align-items:center;min-width:100px;height:48px}
+.logo-img{height:70px;width:auto}
+.logo-img[hidden]{display:none}
+.logo.no-logo{width:120px;border:2px dashed #cbd3e1;border-radius:10px}
+.nav{display:none;gap:4px;padding:8px;background:#fff;border-radius:999px;box-shadow:var(--nav-shadow);font-weight:700;font-size:.95rem}
+.nav a{padding:12px 24px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover{background:#f1f5fb;color:var(--navy)}
+.nav a.active{background:var(--nav-active);color:var(--navy)}
+.nav.open{display:flex;flex-direction:column;position:absolute;top:calc(100% - 4px);left:20px;right:20px;padding:10px;border-radius:24px;text-align:center;z-index:30}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border-radius:999px;overflow:hidden;background:#fff;box-shadow:var(--nav-shadow);direction:ltr}
+.lang button{border:0;background:none;padding:10px 12px;min-height:40px;font:inherit;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.menu-btn{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:999px;background:#fff;box-shadow:var(--nav-shadow);font-size:1.3rem;color:var(--navy);cursor:pointer}
+
+/* Boutons */
+.btns{display:flex;flex-direction:column;gap:12px;margin:26px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:10px;font-weight:700;font-size:.98rem;border:0;cursor:pointer;transition:transform .15s,background .15s;text-align:center}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1445b4}
+.btn-wa{background:var(--green);color:#fff}
+
+/* Hero */
+.hero{padding:20px 0 0}
+
+/* ===== Carrousel hero (3 photos, change toutes les 5 s) ===== */
+.hero-carousel{position:relative;isolation:isolate;height:clamp(320px,44vw,520px);border-radius:20px;overflow:hidden;background:var(--navy);padding:0;color:#fff}
+.hc-slide{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .9s ease}
+.hc-slide.active{opacity:1}
+.hc-slide img{width:100%;height:100%;object-fit:cover}
+.hero-carousel::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(10,31,68,.94) 0%,rgba(10,31,68,.7) 30%,rgba(10,31,68,.25) 65%,rgba(10,31,68,0) 100%)}
+.hc-caption{position:absolute;inset-inline:0;bottom:0;z-index:2;padding:24px 28px 28px;padding-inline-end:120px}
+.hc-caption h1{font-size:clamp(1.4rem,4vw,2.6rem);line-height:1.15;font-weight:800;margin-bottom:10px;text-shadow:0 2px 14px rgba(0,0,0,.4)}
+.hc-caption p{max-width:60ch;color:#e3ecff;font-size:clamp(.88rem,1.6vw,1.02rem);text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.hc-dots{position:absolute;bottom:30px;inset-inline-end:28px;display:flex;gap:10px;z-index:3}
+.hc-dot{position:relative;width:11px;height:11px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .3s,transform .3s}
+.hc-dot::after{content:"";position:absolute;inset:-12px}
+.hc-dot.active{background:#fff;transform:scale(1.25)}
+
+/* CTA + footer */
+.cta{background:var(--navy);color:#fff;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#b9c6df;max-width:56ch;margin:0 auto}
+.cta .btns{max-width:420px;margin:28px auto 0}
+footer{background:#071634;color:#8fa0c2;text-align:center;font-size:.82rem;padding:24px 0}
+
+/* ===== Spécifique à cette page ===== */
+.founder{display:grid;gap:20px;margin-top:8px}
+.photo-card{position:relative;isolation:isolate;overflow:hidden;border-radius:18px;min-height:340px;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(135deg,var(--navy-2),var(--navy))}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.photo-card::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(10,31,68,.94) 0%,rgba(10,31,68,.7) 30%,rgba(10,31,68,.25) 65%,rgba(10,31,68,0) 100%)}
+.photo-card .cap{position:relative;z-index:2;padding:24px}
+.photo-card .tag{display:inline-block;font-size:.72rem;font-weight:700;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:999px;margin-bottom:10px}
+.photo-card h3{font-size:1.5rem;line-height:1.2}
+.photo-card small{display:block;color:#e3ecff;font-weight:600;font-size:.85rem;margin-top:4px}
+.quote-card{background:var(--bg-alt);border:1px solid var(--line);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:18px}
+.quote-card h3{display:flex;align-items:center;gap:10px;color:var(--navy);font-size:1.15rem}
+.quote-card h3 i{font-style:normal;color:var(--blue);font-size:1.8rem;line-height:1}
+.quote-card blockquote{font-style:italic;color:#2a3550;font-size:.98rem}
+.sign{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.sign strong{display:block;color:var(--navy);font-size:.95rem}
+.sign span{font-size:.82rem;color:var(--muted)}
+.sign em{font-size:.85rem;color:var(--blue);font-weight:600;background:var(--blue-soft);padding:8px 12px;border-radius:10px}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 10px;text-align:center}
+.stat b{display:block;font-size:1.6rem;font-weight:800;color:var(--navy);line-height:1.1}
+.stat span{font-size:.78rem;color:var(--muted)}
+
+.services{background:var(--bg-alt)}
+.grid{display:grid;gap:18px;margin-top:32px}
+.moment{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.moment .pic{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy-2),var(--navy))}
+.moment .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.moment .tag{position:absolute;top:12px;inset-inline-start:12px;z-index:1;font-size:.72rem;font-weight:700;background:#fff;color:var(--navy);padding:5px 12px;border-radius:999px;box-shadow:var(--nav-shadow)}
+.moment .body{padding:20px 22px 24px}
+.moment h3{font-size:1.08rem;color:var(--navy);margin-bottom:4px}
+.moment .who{font-size:.8rem;font-weight:700;color:var(--blue);margin-bottom:10px}
+.moment p{color:var(--muted);font-size:.92rem;font-style:italic}
+
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.pill{font-size:.8rem;font-weight:700;background:var(--blue-soft);color:var(--blue);padding:8px 14px;border-radius:999px}
+.reviews{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:28px 2px 14px;margin-top:6px}
+.review{flex:0 0 min(86%,340px);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.review .pic{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy-2),var(--navy))}
+.review .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.review .tag{position:absolute;top:12px;inset-inline-start:12px;font-size:.72rem;font-weight:700;background:var(--green);color:#fff;padding:5px 12px;border-radius:999px}
+.review .body{padding:18px 20px 22px}
+.review .top{display:flex;justify-content:space-between;align-items:center}
+.review h3{font-size:1.05rem;color:var(--navy)}
+.stars{color:#f5b301;letter-spacing:2px;font-size:.85rem}
+.review .role{font-size:.8rem;font-weight:700;color:var(--blue);margin:2px 0 10px}
+.review p{font-size:.92rem;color:var(--muted);font-style:italic}
+.review .loc{margin-top:12px;font-size:.8rem;color:var(--muted)}
+.swipe{font-size:.82rem;color:var(--muted);text-align:center;margin-top:6px}
+
+@media (min-width:720px){
+  .btns{flex-direction:row}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .founder{grid-template-columns:1fr 1.2fr;align-items:stretch}
+  .stat b{font-size:2rem}
+}
+@media (min-width:900px){
+  .site-header .container{display:grid;grid-template-columns:1fr auto 1fr}
+  .nav{display:flex}
+  .menu-btn{display:none}
+  .hdr-right{justify-self:end}
+}
+@media (min-width:1000px){
+  .nav a{padding:12px 30px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .swipe{display:none}
+}
+
+/* ===== Carrousel vidéo ===== */
+.vsec{background:var(--bg-alt)}
+.vwrap{position:relative;margin-top:28px}
+.vtrack{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.vtrack::-webkit-scrollbar{display:none}
+.vcard{flex:0 0 min(72%,260px);scroll-snap-align:center;position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;box-shadow:0 10px 28px rgba(10,31,68,.18)}
+.vcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.vcard video[hidden]{display:none}
+.vcard .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(10,31,68,.9) 0%,rgba(10,31,68,.15) 45%,rgba(10,31,68,0) 70%)}
+.vcard .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;border:0;background:rgba(255,255,255,.95);color:var(--navy);font-size:1.5rem;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.3);transition:transform .2s,opacity .2s}
+.vcard .play:hover{transform:translate(-50%,-50%) scale(1.08)}
+.vcard.playing .play{opacity:0;pointer-events:none}
+.vcard.playing .shade{opacity:.4}
+.vcard .info{position:absolute;inset-inline:0;bottom:0;padding:16px;pointer-events:none}
+.vcard.playing .info{display:none}
+.vcard .info b{display:block;font-size:1rem}
+.vcard .info span{font-size:.8rem;color:#cfe0ff}
+.vcard .tag{position:absolute;top:12px;inset-inline-start:12px;font-size:.7rem;font-weight:700;background:var(--green);color:#fff;padding:4px 10px;border-radius:999px}
+.vnav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px}
+.varrow{width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--navy);box-shadow:var(--nav-shadow);font-size:1.2rem;cursor:pointer;transition:background .2s}
+.varrow:hover{background:var(--nav-active)}
+.vdots{display:flex;gap:8px}
+.vdots button{position:relative;width:10px;height:10px;padding:0;border:0;border-radius:999px;background:#c5cee0;cursor:pointer;transition:width .3s,background .3s}
+.vdots button::after{content:"";position:absolute;inset:-12px -4px}
+.vdots button.active{width:26px;background:var(--blue)}
+html[dir="rtl"] .varrow{transform:scaleX(-1)}
+
+/* ===== Témoignages : style identique à la section Mentorat de l'index ===== */
+.tmn-list{display:grid;gap:56px;margin-top:32px}
+.tmn{display:grid;gap:28px;align-items:center}
+.tmn-title{font-size:clamp(1.3rem,3.5vw,1.8rem);line-height:1.25;font-weight:800;color:var(--navy);margin-bottom:10px}
+.tmn .stars{display:block;margin-bottom:12px;font-size:1rem}
+.mentor-note{margin-top:16px;color:var(--muted);font-size:.95rem}
+.mentor-visual{margin-top:0;border-radius:18px;overflow:hidden;position:relative;isolation:isolate;min-height:260px;background:linear-gradient(135deg,var(--navy-2),var(--navy));color:#fff;display:flex;align-items:flex-end}
+.mentor-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.mentor-visual::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(10,31,68,.94) 0%,rgba(10,31,68,.88) 14%,rgba(10,31,68,.76) 28%,rgba(10,31,68,.58) 42%,rgba(10,31,68,.38) 56%,rgba(10,31,68,.18) 70%,rgba(10,31,68,.06) 84%,rgba(10,31,68,0) 100%)}
+.mentor-caption{position:relative;z-index:2;background:none;padding:28px 24px 24px;width:100%}
+.mentor-caption small{display:block;font-size:.78rem;color:#e3ecff;font-weight:600;margin-bottom:4px;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.mentor-caption h3{font-size:1.4rem;line-height:1.25;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+@media (min-width:1000px){
+  .tmn{grid-template-columns:1fr 1fr;gap:48px}
+  .tmn .mentor-visual{min-height:340px}
+  .tmn.reverse .mentor-visual{order:-1}
+}
+/* ===== Responsive additionnel ===== */
+body{overflow-x:clip}
+.foot-logo{justify-content:center;margin:0 auto 12px;height:44px}
+.foot-logo .logo-img{height:44px}
+.foot-logo.no-logo{border-color:#2a3d66}
+@media (max-width:600px){
+  .hero-carousel{height:480px}
+}
+@media (max-width:480px){
+  section{padding:40px 0}
+  .container{padding:0 16px}
+  .stats{gap:8px}
+  .stat{padding:14px 6px}
+  .stat b{font-size:1.35rem}
+  .stat span{font-size:.7rem}
+  .sign{flex-direction:column;align-items:flex-start}
+  .photo-card{min-height:300px}
+  .quote-card{padding:22px 18px}
+  .site-header .container{min-height:68px}
+  .logo{min-width:90px}
+  .logo-img{height:56px}
+  .hc-caption{padding:18px 18px 52px;padding-inline-end:18px}
+  .hc-dots{bottom:20px;inset-inline-end:auto;left:50%;transform:translateX(-50%)}
+  .lang button{padding:10px 9px}
+  .varrow{display:none}
+}
+@media (min-width:600px){.vcard{flex-basis:240px}}
+@media (min-width:1000px){.vcard{flex-basis:calc((100% - 48px)/4)}}
+@media (min-width:1200px){.container{max-width:1180px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="Accueil">
+      <img src="images/logo.png" alt="Logo" class="logo-img" onerror="this.hidden=true;this.parentElement.classList.add('no-logo')">
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="services.html">Filières</a>
+      <a href="realisations.html" class="active" aria-current="page">Réalisations</a>
+      <a href="contact.html">Formulaire</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false">AR</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero : carrousel de 3 photos (change toutes les 5 secondes) -->
+  <div class="hero container">
+    <section class="hero-carousel" aria-label="Photos de nos réalisations">
+      <div class="hc-slide active"><img src="images/page2.png" alt="Photo 1"></div>
+      <div class="hc-slide"><img src="images/page3.png" alt="Photo 2"></div>
+      <div class="hc-slide"><img src="images/photo3.png" alt="Photo 3"></div>
+      <div class="hc-caption">
+        <h1>Bien plus qu’une agence, un partenaire à vos côtés</h1>
+        <p>De votre première démarche jusqu’à votre départ, notre équipe vous accompagne à chaque étape. Nous partageons vos moments de joie, célébrons vos réussites et restons à vos côtés pour construire votre avenir à l’international.</p>
+      </div>
+      <div class="hc-dots">
+        <button type="button" class="hc-dot active" aria-label="Photo 1"></button>
+        <button type="button" class="hc-dot" aria-label="Photo 2"></button>
+        <button type="button" class="hc-dot" aria-label="Photo 3"></button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Mot du directeur -->
+  <section>
+    <div class="container">
+      <div class="founder">
+        <div class="photo-card">
+          <img src="images/founder.png" alt="Le Directeur Fondateur" onerror="this.hidden=true">
+          <div class="cap">
+            <span class="tag">Fondateur &amp; Directeur</span>
+            <h3>Le Directeur Fondateur</h3>
+            <small>Conseiller principal • À l'écoute bienveillante des familles et des étudiants</small>
+          </div>
+        </div>
+        <div class="quote-card">
+          <h3><i>❝</i> IBRAHIM ABOUELIZ</h3>
+          <blockquote>« Partir étudier à des milliers de kilomètres est un tournant de vie pour un jeune bachelier et un acte d'amour immense de la part de ses parents. Dès le premier rendez-vous dans nos bureaux, nous ne voyons pas un client, mais un futur médecin, ingénieur ou architecte que nous prenons sous notre aile. Mon engagement personnel est que chaque étudiant sache qu'il ne sera jamais seul : nous sommes présents du premier coup de fil jusqu'à la remise de diplôme. »</blockquote>
+          <div class="sign">
+            <div><strong>Fondateur & Directeur Général de Visa Study SARL AU</strong><span>Rabat, Maroc</span></div>
+            <em>« L'exigence académique, la chaleur d'une famille »</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>100%</b><span>Écoute 7j/7 WhatsApp</span></div>
+        <div class="stat"><b>+380</b><span>Jeunes pris sous notre aile</span></div>
+        <div class="stat"><b>0</b><span>Étudiant seul à l'arrivée</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instantanés -->
+  <section class="services">
+    <div class="container">
+      <p class="eyebrow">INSTANTANÉS DE TERRAIN</p>
+      <h2>Une Proximité Vécue au Quotidien</h2>
+      <p class="section-intro">Des moments d'émotions partagées, de la signature au Maroc jusqu'au pied des facultés slaves.</p>
+
+      <div class="grid">
+        <article class="moment">
+          <div class="pic"><img src="images/etudiant1.png" alt="Remise du visa à Rabat" onerror="this.hidden=true"><span class="tag">Accompagnement dès le 1er jour</span></div>
+          <div class="body">
+            <h3>Mon départ pour la Russie avec Visa Study 🇷🇺</h3>
+            <p class="who">Un accompagnement qui a fait toute la différence dans mon projet d’études</p>
+            <p>« Dès le début de mon projet d’études en Russie, l’équipe de Visa Study m’a accompagné dans chaque étape. De la préparation de mon dossier jusqu’à l’obtention de mon visa, j’ai toujours eu quelqu’un pour répondre à mes questions et me guider. Grâce à leur accompagnement et à leur disponibilité, j’ai pu avancer sereinement et concrétiser mon projet d’étudier en Russie. Une équipe professionnelle, à l’écoute et présente jusqu’au départ. »</p>
+          </div>
+        </article>
+        <article class="moment">
+          <div class="pic"><img src="images/etudiant22.png" alt="Accueil à l'aéroport de Moscou" onerror="this.hidden=true"><span class="tag">Présence terrain garantie</span></div>
+          <div class="body">
+            <h3>L'accueil chaleureux dès la descente d'avion à Moscou</h3>
+            <p class="who">Yassine & Mehdi accompagnés par l’équipe Visa Study</p>
+            <p>« Dès notre arrivée à Moscou, nous avons été chaleureusement accueillis par l’équipe Visa Study. Malgré la distance et les premières appréhensions, tout était organisé pour nous faciliter notre installation : accueil à l’aéroport, transfert, accompagnement jusqu’à la résidence universitaire et assistance dans nos premières démarches. Leur présence à nos côtés nous a permis de commencer notre nouvelle aventure en Russie en toute sérénité. »</p>
+          </div>
+        </article>
+        <article class="moment">
+          <div class="pic"><img src="images/etudiant3.png" alt="Atelier de coaching" onerror="this.hidden=true"><span class="tag">Écoute &amp; Fraternité</span></div>
+          <div class="body">
+            <h3>Bien plus qu’un accompagnement : une vraie communauté</h3>
+            <p class="who">Des échanges réguliers pour bien préparer son arrivée</p>
+            <p>« Avant même notre départ, l’équipe Visa Study reste à nos côtés pour nous préparer à notre nouvelle vie en Russie. À travers des échanges et des rencontres avec les responsables et d’autres étudiants, nous avons pu poser nos questions, mieux comprendre les étapes de notre installation et partager nos premières appréhensions. Un accompagnement qui nous permet d’aborder cette nouvelle aventure avec plus de confiance et de sérénité. »</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section>
+    <div class="container">
+      <div class="head-row">
+        <div>
+          <p class="eyebrow">OUVERTURE À L’INTERNATIONAL</p>
+          <h2>Leur Avis sur Notre Lien Direct</h2>
+        </div>
+        <span class="pill">partenariat</span>
+      </div>
+      <p class="section-intro">Découvrez les réussites vécues côte à côte avec le directeur et notre équipe à Rabat.</p>
+
+      <div class="tmn-list">
+        <div class="tmn">
+          <div>
+            <h3 class="tmn-title">Construire des partenariats, ouvrir de nouvelles perspectives.</h3>
+            <span class="stars" aria-label="5 étoiles">★★★★★</span>
+            <p class="section-intro">Nous développons progressivement notre réseau international afin d’offrir aux étudiants marocains davantage d’opportunités d’études à travers le monde.</p>
+            <p class="mentor-note">📍 Rabat</p>
+          </div>
+          <div class="mentor-visual">
+            <img src="images/page1.png" alt="Visa Study" onerror="this.hidden=true">
+            <div class="mentor-caption">
+              <h3>Visa Study</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="tmn reverse">
+          <div>
+            <p class="eyebrow">ENGAGÉS POUR UNE ÉDUCATION SANS FRONTIÈRES</p>
+            <h3 class="tmn-title">Une ouverture sur le monde et la coopération internationale</h3>
+            <span class="stars" aria-label="5 étoiles">★★★★★</span>
+            <p class="section-intro">« Chez VISA STUDY, nous croyons en une éducation ouverte sur le monde. Nous aspirons à développer des collaborations avec les organisations internationales et les acteurs de l’éducation afin de créer davantage d’opportunités pour les étudiants marocains et de contribuer à un avenir fondé sur l’échange, la coopération et le partage des connaissances. »</p>
+            <p class="mentor-note">📍 Le monde</p>
+          </div>
+          <div class="mentor-visual">
+            <img src="images/carnet.png" alt="Étudiant" onerror="this.hidden=true">
+            <div class="mentor-caption">
+              <small>Visa Study</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vidéos étudiants -->
+  <section class="vsec">
+    <div class="container">
+      <p class="eyebrow">TÉMOIGNAGES VIDÉO</p>
+      <h2>Ils racontent leur expérience</h2>
+      <p class="section-intro">Des étudiants satisfaits parlent de leur accompagnement, du Maroc jusqu'à leur université.</p>
+      <p>Découvrez en vidéo les expériences de nos étudiants avec VISA STUDY</p>
+
+      <!-- Pour ajouter une vidéo : copiez un bloc <article class="vcard"> et changez les fichiers dans videos/ -->
+      <div class="vwrap">
+        <div class="vtrack" id="vtrack" tabindex="0" aria-label="Vidéos d'étudiants">
+          <article class="vcard">
+            <video preload="metadata" playsinline onerror="this.hidden=true"><source src="videos/etudiant1.mp4" type="video/mp4"></video>
+            <div class="shade"></div>
+            <span class="tag">Visa obtenu</span>
+            <button class="play" type="button" aria-label="Lire la vidéo">▶</button>
+          </article>
+          <article class="vcard">
+            <video preload="metadata" playsinline onerror="this.hidden=true"><source src="videos/etudiant2.mp4" type="video/mp4"></video>
+            <div class="shade"></div>
+            <span class="tag">Visa obtenu</span>
+            <button class="play" type="button" aria-label="Lire la vidéo">▶</button>
+          </article>
+          <article class="vcard">
+            <video preload="metadata" playsinline onerror="this.hidden=true"><source src="videos/etudiant3.mp4" type="video/mp4"></video>
+            <div class="shade"></div>
+            <span class="tag">Visa obtenu</span>
+            <button class="play" type="button" aria-label="Lire la vidéo">▶</button>
+          </article>
+          <article class="vcard">
+            <video preload="metadata" playsinline onerror="this.hidden=true"><source src="videos/etudiant4.mp4" type="video/mp4"></video>
+            <div class="shade"></div>
+            <span class="tag">Visa obtenu</span>
+            <button class="play" type="button" aria-label="Lire la vidéo">▶</button>
+          </article>
+          <article class="vcard">
+            <video preload="metadata" playsinline onerror="this.hidden=true"><source src="videos/etudiant5.mp4" type="video/mp4"></video>
+            <div class="shade"></div>
+            <span class="tag">Visa obtenu</span>
+            <button class="play" type="button" aria-label="Lire la vidéo">▶</button>
+          </article>
+        </div>
+        <div class="vnav">
+          <button class="varrow" id="vprev" type="button" aria-label="Précédent">←</button>
+          <div class="vdots" id="vdots"></div>
+          <button class="varrow" id="vnext" type="button" aria-label="Suivant">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Besoin d'un accompagnement personnalisé ?</h2>
+      <p>Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.</p>
+      <div class="btns">
+        <a href="contact.html" class="btn btn-primary">Demander une consultation gratuite</a>
+        <a href="https://wa.me/212629713827" class="btn btn-wa" target="_blank" rel="noopener">Contacter par WhatsApp : +212 629 713 827</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="index.html" class="logo foot-logo" aria-label="Accueil">
+      <img src="images/logo.png" alt="Logo" class="logo-img" onerror="this.hidden=true;this.parentElement.classList.add('no-logo')">
+    </a>
+    <p>© 2025 Tous droits réservés.</p>
+    <p>Accompagnement universitaire officiel • Maroc • Russie • Biélorussie</p>
+  </div>
+</footer>
+
+<script>
+  /* Menu mobile : s'ouvre au clic et se ferme après un clic sur un lien */
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+<script>
+  /* Traduction FR / EN / AR.
+     La clé = texte français EXACT de la page (si vous modifiez le texte, modifiez aussi la clé). */
+  const DICT = {
+   en: {
+    /* Navigation */
+    "Accueil":"Home","Destinations":"Destinations","Filières":"Programs","Réalisations":"Achievements","Formulaire":"Form",
+    /* Hero */
+    "Bien plus qu’une agence, un partenaire à vos côtés":"Much more than an agency, a partner by your side",
+    "De votre première démarche jusqu’à votre départ, notre équipe vous accompagne à chaque étape. Nous partageons vos moments de joie, célébrons vos réussites et restons à vos côtés pour construire votre avenir à l’international.":"From your first steps to your departure, our team supports you at every stage. We share your moments of joy, celebrate your successes and stay by your side as you build your future abroad.",
+    /* Fondateur */
+    "Fondateur & Directeur":"Founder & Director","Le Directeur Fondateur":"The Founding Director",
+    "Conseiller principal • À l'écoute bienveillante des familles et des étudiants":"Lead advisor • Caring listener to families and students",
+    "« Partir étudier à des milliers de kilomètres est un tournant de vie pour un jeune bachelier et un acte d'amour immense de la part de ses parents. Dès le premier rendez-vous dans nos bureaux, nous ne voyons pas un client, mais un futur médecin, ingénieur ou architecte que nous prenons sous notre aile. Mon engagement personnel est que chaque étudiant sache qu'il ne sera jamais seul : nous sommes présents du premier coup de fil jusqu'à la remise de diplôme. »":"« Leaving to study thousands of kilometres away is a turning point in a young graduate's life and an immense act of love on the part of their parents. From the very first appointment in our offices, we do not see a client, but a future doctor, engineer or architect whom we take under our wing. My personal commitment is that every student knows they will never be alone: we are there from the first phone call to the awarding of the diploma. »",
+    "Fondateur & Directeur Général de Visa Study SARL AU":"Founder & Managing Director of Visa Study SARL AU",
+    "Rabat, Maroc":"Rabat, Morocco",
+    "IBRAHIM ABOUELIZ":"IBRAHIM ABOUELIZ","Visa Study":"Visa Study","Vidéo":"Video",
+    "« L'exigence académique, la chaleur d'une famille »":"« Academic rigour, the warmth of a family »",
+    "Écoute 7j/7 WhatsApp":"WhatsApp support 7/7","Jeunes pris sous notre aile":"Young people under our wing","Étudiant seul à l'arrivée":"Students alone on arrival",
+    /* Instantanés */
+    "INSTANTANÉS DE TERRAIN":"SNAPSHOTS FROM THE FIELD","Une Proximité Vécue au Quotidien":"Closeness Lived Every Day",
+    "Des moments d'émotions partagées, de la signature au Maroc jusqu'au pied des facultés slaves.":"Moments of shared emotion, from the signing in Morocco to the doors of Slavic universities.",
+    "Accompagnement dès le 1er jour":"Support from day one",
+    "Mon départ pour la Russie avec Visa Study 🇷🇺":"My departure for Russia with Visa Study 🇷🇺",
+    "Un accompagnement qui a fait toute la différence dans mon projet d’études":"Support that made all the difference in my study project",
+    "« Dès le début de mon projet d’études en Russie, l’équipe de Visa Study m’a accompagné dans chaque étape. De la préparation de mon dossier jusqu’à l’obtention de mon visa, j’ai toujours eu quelqu’un pour répondre à mes questions et me guider. Grâce à leur accompagnement et à leur disponibilité, j’ai pu avancer sereinement et concrétiser mon projet d’étudier en Russie. Une équipe professionnelle, à l’écoute et présente jusqu’au départ. »":"« From the very start of my study project in Russia, the Visa Study team supported me at every step. From preparing my file to obtaining my visa, I always had someone to answer my questions and guide me. Thanks to their support and availability, I was able to move forward with peace of mind and make my project of studying in Russia a reality. A professional, attentive team, present right up to departure. »",
+    "Présence terrain garantie":"On-site presence guaranteed",
+    "L'accueil chaleureux dès la descente d'avion à Moscou":"A warm welcome the moment you land in Moscow",
+    "Yassine & Mehdi accompagnés par l’équipe Visa Study":"Yassine & Mehdi, supported by the Visa Study team",
+    "« Dès notre arrivée à Moscou, nous avons été chaleureusement accueillis par l’équipe Visa Study. Malgré la distance et les premières appréhensions, tout était organisé pour nous faciliter notre installation : accueil à l’aéroport, transfert, accompagnement jusqu’à la résidence universitaire et assistance dans nos premières démarches. Leur présence à nos côtés nous a permis de commencer notre nouvelle aventure en Russie en toute sérénité. »":"« From the moment we arrived in Moscow, we were warmly welcomed by the Visa Study team. Despite the distance and our first apprehensions, everything was organised to make our settling in easier: airport reception, transfer, accompaniment to the university residence and help with our first procedures. Having them by our side allowed us to begin our new adventure in Russia with complete peace of mind. »",
+    "Écoute & Fraternité":"Listening & Fellowship",
+    "Bien plus qu’un accompagnement : une vraie communauté":"Much more than support: a real community",
+    "Des échanges réguliers pour bien préparer son arrivée":"Regular exchanges to prepare your arrival well",
+    "« Avant même notre départ, l’équipe Visa Study reste à nos côtés pour nous préparer à notre nouvelle vie en Russie. À travers des échanges et des rencontres avec les responsables et d’autres étudiants, nous avons pu poser nos questions, mieux comprendre les étapes de notre installation et partager nos premières appréhensions. Un accompagnement qui nous permet d’aborder cette nouvelle aventure avec plus de confiance et de sérénité. »":"« Even before our departure, the Visa Study team stays by our side to prepare us for our new life in Russia. Through discussions and meetings with the managers and other students, we were able to ask our questions, better understand the stages of our settling in and share our first apprehensions. Support that lets us approach this new adventure with more confidence and peace of mind. »",
+    /* Partenariats */
+    "OUVERTURE À L’INTERNATIONAL":"OPENNESS TO THE WORLD","Leur Avis sur Notre Lien Direct":"Their View on Our Direct Bond","partenariat":"partnership",
+    "Découvrez les réussites vécues côte à côte avec le directeur et notre équipe à Rabat.":"Discover the successes lived side by side with the director and our team in Rabat.",
+    "Construire des partenariats, ouvrir de nouvelles perspectives.":"Building partnerships, opening new perspectives.",
+    "Nous développons progressivement notre réseau international afin d’offrir aux étudiants marocains davantage d’opportunités d’études à travers le monde.":"We are gradually developing our international network to offer Moroccan students more study opportunities around the world.",
+    "📍 Rabat":"📍 Rabat","📍 Le monde":"📍 The world",
+    "ENGAGÉS POUR UNE ÉDUCATION SANS FRONTIÈRES":"COMMITTED TO EDUCATION WITHOUT BORDERS",
+    "Une ouverture sur le monde et la coopération internationale":"Openness to the world and international cooperation",
+    "« Chez VISA STUDY, nous croyons en une éducation ouverte sur le monde. Nous aspirons à développer des collaborations avec les organisations internationales et les acteurs de l’éducation afin de créer davantage d’opportunités pour les étudiants marocains et de contribuer à un avenir fondé sur l’échange, la coopération et le partage des connaissances. »":"« At VISA STUDY, we believe in an education open to the world. We aspire to develop collaborations with international organisations and education stakeholders in order to create more opportunities for Moroccan students and to contribute to a future built on exchange, cooperation and the sharing of knowledge. »",
+    /* Vidéos */
+    "TÉMOIGNAGES VIDÉO":"VIDEO TESTIMONIALS","Ils racontent leur expérience":"They share their experience",
+    "Des étudiants satisfaits parlent de leur accompagnement, du Maroc jusqu'à leur université.":"Satisfied students talk about their support, from Morocco to their university.",
+    "Découvrez en vidéo les expériences de nos étudiants avec VISA STUDY":"Discover, in video, the experiences of our students with VISA STUDY",
+    "Visa obtenu":"Visa granted","Précédent":"Previous","Suivant":"Next",
+    /* CTA + footer */
+    "Besoin d'un accompagnement personnalisé ?":"Need personalised support?",
+    "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.":"Our advisors see you by appointment or answer your questions right away on WhatsApp.",
+    "Demander une consultation gratuite":"Request a free consultation","Contacter par WhatsApp : +212 629 713 827":"Contact us on WhatsApp: +212 629 713 827",
+    "© 2025 Tous droits réservés.":"© 2025 All rights reserved.",
+    "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie":"Official university support • Morocco • Russia • Belarus",
+    /* Attributs alt / aria-label */
+    "Logo":"Logo","Photo 1":"Photo 1","Photo 2":"Photo 2","Photo 3":"Photo 3",
+    "Photos de nos réalisations":"Photos of our achievements","Navigation principale":"Main navigation","Ouvrir le menu":"Open the menu",
+    "Langue / Language":"Language / Langue","Remise du visa à Rabat":"Visa handover in Rabat","Accueil à l'aéroport de Moscou":"Airport welcome in Moscow",
+    "Atelier de coaching":"Coaching workshop","Étudiant":"Student","Vidéos d'étudiants":"Student videos","Lire la vidéo":"Play the video","5 étoiles":"5 stars"
+   },
+   ar: {
+    /* Navigation */
+    "Accueil":"الرئيسية","Destinations":"الوجهات","Filières":"التخصصات","Réalisations":"إنجازاتنا","Formulaire":"الاستمارة",
+    /* Hero */
+    "Bien plus qu’une agence, un partenaire à vos côtés":"أكثر من مجرد وكالة، شريك إلى جانبكم",
+    "De votre première démarche jusqu’à votre départ, notre équipe vous accompagne à chaque étape. Nous partageons vos moments de joie, célébrons vos réussites et restons à vos côtés pour construire votre avenir à l’international.":"من أولى خطواتكم حتى لحظة سفركم، يرافقكم فريقنا في كل مرحلة. نشارككم لحظات الفرح، ونحتفل بنجاحاتكم، ونبقى إلى جانبكم لبناء مستقبلكم في الخارج.",
+    /* Fondateur */
+    "Fondateur & Directeur":"المؤسس والمدير","Le Directeur Fondateur":"المدير المؤسس",
+    "Conseiller principal • À l'écoute bienveillante des familles et des étudiants":"المستشار الرئيسي • إصغاء ودود للعائلات والطلبة",
+    "« Partir étudier à des milliers de kilomètres est un tournant de vie pour un jeune bachelier et un acte d'amour immense de la part de ses parents. Dès le premier rendez-vous dans nos bureaux, nous ne voyons pas un client, mais un futur médecin, ingénieur ou architecte que nous prenons sous notre aile. Mon engagement personnel est que chaque étudiant sache qu'il ne sera jamais seul : nous sommes présents du premier coup de fil jusqu'à la remise de diplôme. »":"« السفر للدراسة على بعد آلاف الكيلومترات منعطف حاسم في حياة الشاب الحاصل على البكالوريا، وفعل حب عظيم من والديه. منذ أول موعد في مكاتبنا، لا نرى زبونًا، بل طبيبًا أو مهندسًا أو مهندسًا معماريًا في المستقبل نأخذه تحت جناحنا. التزامي الشخصي أن يعرف كل طالب أنه لن يكون وحيدًا أبدًا: نحن حاضرون منذ أول مكالمة هاتفية حتى تسلّم الشهادة. »",
+    "Fondateur & Directeur Général de Visa Study SARL AU":"المؤسس والمدير العام لشركة Visa Study ذات المسؤولية المحدودة بشريك وحيد",
+    "Rabat, Maroc":"الرباط، المغرب",
+    "IBRAHIM ABOUELIZ":"إبراهيم أبو العز","Visa Study":"Visa Study","Vidéo":"فيديو",
+    "« L'exigence académique, la chaleur d'une famille »":"« صرامة أكاديمية ودفء عائلة »",
+    "Écoute 7j/7 WhatsApp":"إصغاء 7/7 عبر واتساب","Jeunes pris sous notre aile":"شاب تحت رعايتنا","Étudiant seul à l'arrivée":"طالب وحيد عند الوصول",
+    /* Instantanés */
+    "INSTANTANÉS DE TERRAIN":"لقطات من الميدان","Une Proximité Vécue au Quotidien":"قرب نعيشه كل يوم",
+    "Des moments d'émotions partagées, de la signature au Maroc jusqu'au pied des facultés slaves.":"لحظات مشاعر مشتركة، من التوقيع في المغرب إلى أبواب الجامعات السلافية.",
+    "Accompagnement dès le 1er jour":"مواكبة منذ اليوم الأول",
+    "Mon départ pour la Russie avec Visa Study 🇷🇺":"رحلتي إلى روسيا مع Visa Study 🇷🇺",
+    "Un accompagnement qui a fait toute la différence dans mon projet d’études":"مواكبة صنعت الفارق في مشروعي الدراسي",
+    "« Dès le début de mon projet d’études en Russie, l’équipe de Visa Study m’a accompagné dans chaque étape. De la préparation de mon dossier jusqu’à l’obtention de mon visa, j’ai toujours eu quelqu’un pour répondre à mes questions et me guider. Grâce à leur accompagnement et à leur disponibilité, j’ai pu avancer sereinement et concrétiser mon projet d’étudier en Russie. Une équipe professionnelle, à l’écoute et présente jusqu’au départ. »":"« منذ بداية مشروعي الدراسي في روسيا، رافقني فريق Visa Study في كل خطوة. من تحضير ملفي إلى الحصول على التأشيرة، كان دائمًا هناك من يجيب عن أسئلتي ويرشدني. بفضل مواكبتهم وتوفرهم، تمكنت من المضي قدمًا بكل اطمئنان وتحقيق مشروعي في الدراسة بروسيا. فريق محترف، يُحسن الإصغاء، وحاضر حتى لحظة السفر. »",
+    "Présence terrain garantie":"حضور ميداني مضمون",
+    "L'accueil chaleureux dès la descente d'avion à Moscou":"استقبال دافئ فور النزول من الطائرة في موسكو",
+    "Yassine & Mehdi accompagnés par l’équipe Visa Study":"ياسين ومهدي برفقة فريق Visa Study",
+    "« Dès notre arrivée à Moscou, nous avons été chaleureusement accueillis par l’équipe Visa Study. Malgré la distance et les premières appréhensions, tout était organisé pour nous faciliter notre installation : accueil à l’aéroport, transfert, accompagnement jusqu’à la résidence universitaire et assistance dans nos premières démarches. Leur présence à nos côtés nous a permis de commencer notre nouvelle aventure en Russie en toute sérénité. »":"« منذ وصولنا إلى موسكو، استقبلنا فريق Visa Study بحفاوة. ورغم المسافة والمخاوف الأولى، كان كل شيء منظمًا لتسهيل استقرارنا: استقبال في المطار، ونقل، ومرافقة حتى الإقامة الجامعية، ومساعدة في إجراءاتنا الأولى. وجودهم إلى جانبنا مكّننا من بدء مغامرتنا الجديدة في روسيا بكل اطمئنان. »",
+    "Écoute & Fraternité":"إصغاء وأخوّة",
+    "Bien plus qu’un accompagnement : une vraie communauté":"أكثر من مجرد مواكبة: مجتمع حقيقي",
+    "Des échanges réguliers pour bien préparer son arrivée":"لقاءات منتظمة للتحضير الجيد للوصول",
+    "« Avant même notre départ, l’équipe Visa Study reste à nos côtés pour nous préparer à notre nouvelle vie en Russie. À travers des échanges et des rencontres avec les responsables et d’autres étudiants, nous avons pu poser nos questions, mieux comprendre les étapes de notre installation et partager nos premières appréhensions. Un accompagnement qui nous permet d’aborder cette nouvelle aventure avec plus de confiance et de sérénité. »":"« حتى قبل سفرنا، يبقى فريق Visa Study إلى جانبنا لإعدادنا لحياتنا الجديدة في روسيا. من خلال النقاشات واللقاءات مع المسؤولين وطلبة آخرين، استطعنا طرح أسئلتنا وفهم مراحل استقرارنا بشكل أفضل ومشاركة مخاوفنا الأولى. مواكبة تتيح لنا خوض هذه المغامرة الجديدة بثقة وطمأنينة أكبر. »",
+    /* Partenariats */
+    "OUVERTURE À L’INTERNATIONAL":"الانفتاح على العالم","Leur Avis sur Notre Lien Direct":"رأيهم في تواصلنا المباشر","partenariat":"شراكة",
+    "Découvrez les réussites vécues côte à côte avec le directeur et notre équipe à Rabat.":"اكتشف قصص النجاح التي عشناها جنبًا إلى جنب مع المدير وفريقنا في الرباط.",
+    "Construire des partenariats, ouvrir de nouvelles perspectives.":"بناء الشراكات وفتح آفاق جديدة.",
+    "Nous développons progressivement notre réseau international afin d’offrir aux étudiants marocains davantage d’opportunités d’études à travers le monde.":"نعمل تدريجيًا على توسيع شبكتنا الدولية لنتيح للطلبة المغاربة فرصًا أكثر للدراسة عبر العالم.",
+    "📍 Rabat":"📍 الرباط","📍 Le monde":"📍 العالم",
+    "ENGAGÉS POUR UNE ÉDUCATION SANS FRONTIÈRES":"ملتزمون بتعليم بلا حدود",
+    "Une ouverture sur le monde et la coopération internationale":"انفتاح على العالم وتعاون دولي",
+    "« Chez VISA STUDY, nous croyons en une éducation ouverte sur le monde. Nous aspirons à développer des collaborations avec les organisations internationales et les acteurs de l’éducation afin de créer davantage d’opportunités pour les étudiants marocains et de contribuer à un avenir fondé sur l’échange, la coopération et le partage des connaissances. »":"« في VISA STUDY، نؤمن بتعليم منفتح على العالم. نطمح إلى تطوير شراكات مع المنظمات الدولية والفاعلين في مجال التعليم من أجل خلق فرص أكبر للطلبة المغاربة والإسهام في مستقبل قائم على التبادل والتعاون وتقاسم المعرفة. »",
+    /* Vidéos */
+    "TÉMOIGNAGES VIDÉO":"شهادات بالفيديو","Ils racontent leur expérience":"يحكون تجربتهم",
+    "Des étudiants satisfaits parlent de leur accompagnement, du Maroc jusqu'à leur université.":"طلبة راضون يتحدثون عن مواكبتهم، من المغرب إلى جامعتهم.",
+    "Découvrez en vidéo les expériences de nos étudiants avec VISA STUDY":"اكتشفوا بالفيديو تجارب طلبتنا مع VISA STUDY",
+    "Visa obtenu":"تم الحصول على التأشيرة","Précédent":"السابق","Suivant":"التالي",
+    /* CTA + footer */
+    "Besoin d'un accompagnement personnalisé ?":"هل تحتاج إلى مواكبة شخصية؟",
+    "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.":"يستقبلك مستشارونا بموعد مسبق أو يجيبون عن استفساراتك فورًا عبر واتساب.",
+    "Demander une consultation gratuite":"اطلب استشارة مجانية","Contacter par WhatsApp : +212 629 713 827":"تواصل معنا عبر واتساب: ⁦+212 629 713 827⁩",
+    "© 2025 Tous droits réservés.":"© 2025 جميع الحقوق محفوظة.",
+    "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie":"مواكبة جامعية رسمية • المغرب • روسيا • بيلاروسيا",
+    /* Attributs alt / aria-label */
+    "Logo":"الشعار","Photo 1":"صورة 1","Photo 2":"صورة 2","Photo 3":"صورة 3",
+    "Photos de nos réalisations":"صور من إنجازاتنا","Navigation principale":"التنقل الرئيسي","Ouvrir le menu":"فتح القائمة",
+    "Langue / Language":"اللغة / Language","Remise du visa à Rabat":"تسليم التأشيرة في الرباط","Accueil à l'aéroport de Moscou":"الاستقبال في مطار موسكو",
+    "Atelier de coaching":"ورشة تأطير","Étudiant":"طالب","Vidéos d'étudiants":"فيديوهات الطلبة","Lire la vidéo":"تشغيل الفيديو","5 étoiles":"5 نجوم"
+   }
+  };
+  const TITLES = {en:{"Le Mot du Fondateur & Notre Proximité":"Founder's Word & Our Closeness"},ar:{"Le Mot du Fondateur & Notre Proximité":"كلمة المؤسس وقربنا"}};
+  const originals = new WeakMap();
+  const attrOriginals = new WeakMap();
+  const frTitle = document.title;
+  const ATTRS = ['alt','aria-label'];
+
+  function norm(s){ return s.trim().replace(/\s+/g, ' '); }
+  function tr(lang, key){
+    let t = DICT[lang][key];
+    if (t && lang === 'ar') t = t.replace(/Visa Study|VISA STUDY/g, 'فيزا ستادي');
+    return t;
+  }
+
+  function applyLang(lang) {
+    /* Textes visibles */
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => {
+      if (['SCRIPT','STYLE'].includes(n.parentElement.tagName)) return;
+      if (!originals.has(n)) originals.set(n, n.nodeValue);
+      const original = originals.get(n);
+      if (lang === 'fr') { n.nodeValue = original; return; }
+      const t = tr(lang, norm(original));
+      if (t) n.nodeValue = original.replace(/\S[\s\S]*\S|\S/, () => t);
+    });
+    /* Attributs alt / aria-label */
+    document.querySelectorAll('[alt],[aria-label]').forEach(el => {
+      ATTRS.forEach(a => {
+        if (!el.hasAttribute(a)) return;
+        let store = attrOriginals.get(el);
+        if (!store) { store = {}; attrOriginals.set(el, store); }
+        if (!(a in store)) store[a] = el.getAttribute(a);
+        if (lang === 'fr') { el.setAttribute(a, store[a]); return; }
+        const t = tr(lang, norm(store[a]));
+        el.setAttribute(a, t || store[a]);
+      });
+    });
+    const vWord = lang === 'fr' ? 'Vidéo' : DICT[lang]['Vidéo'];
+    document.querySelectorAll('#vdots button').forEach((d, i) => d.setAttribute('aria-label', vWord + ' ' + (i + 1)));
+    document.title = lang === 'fr' ? frTitle : ((TITLES[lang] && TITLES[lang][frTitle]) || frTitle);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+  let saved = 'fr';
+  try { saved = localStorage.getItem('lang') || 'fr'; } catch (e) {}
+  if (saved === 'en' || saved === 'ar') applyLang(saved);
+</script>
+<script>
+  /* Carrousel hero : change de photo toutes les 5 secondes */
+  (function () {
+    var carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
+    var slides = carousel.querySelectorAll('.hc-slide');
+    var dots = carousel.querySelectorAll('.hc-dot');
+    var current = 0, timer;
+    function show(i) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (i + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    function start() { stop(); timer = setInterval(function () { show(current + 1); }, 5000); }
+    function stop() { clearInterval(timer); }
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { stop(); show(i); start(); });
+    });
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    start();
+  })();
+</script>
+<script>
+  /* Carrousel vidéo : flèches, points, lecture au clic, une seule vidéo à la fois */
+  (function () {
+    var track = document.getElementById('vtrack');
+    var cards = Array.from(track.querySelectorAll('.vcard'));
+    var dotsBox = document.getElementById('vdots');
+    var dots = cards.map(function (c, i) {
+      var d = document.createElement('button');
+      d.type = 'button'; d.setAttribute('aria-label', 'Vidéo ' + (i + 1));
+      d.addEventListener('click', function () { go(i); });
+      dotsBox.appendChild(d); return d;
+    });
+    function step() { return cards[0].getBoundingClientRect().width + 16; }
+    function idx() { return Math.max(0, Math.min(cards.length - 1, Math.round(Math.abs(track.scrollLeft) / step()))); }
+    function go(i) {
+      var dir = document.documentElement.dir === 'rtl' ? -1 : 1;
+      track.scrollTo({ left: dir * i * step(), behavior: 'smooth' });
+    }
+    function mark() { var k = idx(); dots.forEach(function (d, j) { d.classList.toggle('active', j === k); }); }
+    document.getElementById('vprev').addEventListener('click', function () { go(Math.max(0, idx() - 1)); });
+    document.getElementById('vnext').addEventListener('click', function () { go(Math.min(cards.length - 1, idx() + 1)); });
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); });
+    function stopAll(except) {
+      cards.forEach(function (c) {
+        if (c === except) return;
+        var v = c.querySelector('video');
+        if (v && !v.paused) v.pause();
+        c.classList.remove('playing');
+      });
+    }
+    cards.forEach(function (c) {
+      var v = c.querySelector('video'), b = c.querySelector('.play');
+      b.addEventListener('click', function () {
+        if (v.hidden) return;
+        stopAll(c); v.controls = true; v.play(); c.classList.add('playing');
+      });
+      v.addEventListener('pause', function () { c.classList.remove('playing'); });
+      v.addEventListener('ended', function () { c.classList.remove('playing'); v.controls = false; });
+    });
+    mark();
+    if (typeof applyLang === 'function') applyLang(document.documentElement.lang || 'fr');
+  })();
+</script>
+</body>
+</html>

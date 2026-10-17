@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulaire – Visa Study Maroc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Feuille de style commune à toutes les pages (mobile first) */
+:root{
+  --navy:#0a1f44; --navy-2:#12315f; --blue:#1a56db; --blue-soft:#e8f0fe;
+  --ink:#0f172a; --muted:#5b6478; --line:#e5e9f0; --bg:#ffffff; --bg-alt:#f5f7fb;
+  --green:#22c55e; --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.15rem;color:var(--navy)}
+.logo span{color:var(--blue)}
+.nav{display:none;gap:28px;font-weight:600;font-size:.95rem}
+.nav a:hover{color:var(--blue)}
+.menu-btn{background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--navy)}
+.nav.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:#fff;padding:16px 20px;border-bottom:1px solid var(--line)}
+
+/* Hero */
+.hero{padding:20px 0 0}
+.hero-card{background:var(--navy);color:#fff;border-radius:20px;padding:32px 24px}
+.badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;font-weight:800;margin:18px 0 14px}
+.hero p.lead{color:#b9c6df;max-width:52ch}
+.btns{display:flex;flex-direction:column;gap:12px;margin:26px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:10px;font-weight:700;font-size:.98rem;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1445b4}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-wa{background:var(--green);color:#fff}
+.countries{display:grid;gap:12px}
+.country{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+.country strong{display:block;font-size:1rem}
+.country span{font-size:.85rem;color:#b9c6df}
+
+/* Sections */
+section{padding:56px 0}
+.eyebrow{color:var(--blue);font-weight:700;font-size:.8rem;margin-bottom:8px}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1.2;font-weight:800;color:var(--navy);margin-bottom:14px}
+.section-intro{color:var(--muted);max-width:60ch}
+
+/* Mentorat */
+.mentor-visual{margin-top:28px;border-radius:18px;overflow:hidden;position:relative;min-height:260px;
+  background:linear-gradient(135deg,var(--navy-2),var(--navy));color:#fff;display:flex;align-items:flex-end}
+.mentor-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mentor-caption{position:relative;padding:24px;background:linear-gradient(transparent,rgba(10,31,68,.9));width:100%}
+.mentor-caption small{display:block;font-size:.78rem;color:#b9c6df;margin-bottom:4px}
+.mentor-caption h3{font-size:1.4rem;line-height:1.25}
+.mentor-note{margin-top:16px;color:var(--muted);font-size:.95rem}
+
+/* Services */
+.services{background:var(--bg-alt)}
+.grid{display:grid;gap:18px;margin-top:32px}
+.service{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.icon{width:44px;height:44px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-size:1.3rem;margin-bottom:14px}
+.service h3{font-size:1.1rem;color:var(--navy);margin-bottom:6px}
+.service p{color:var(--muted);font-size:.93rem}
+
+/* CTA */
+.cta{background:var(--navy);color:#fff;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#b9c6df;max-width:56ch;margin:0 auto}
+.cta .btns{max-width:420px;margin:28px auto 0}
+
+/* Footer */
+footer{background:#071634;color:#8fa0c2;text-align:center;font-size:.82rem;padding:24px 0}
+
+@media (min-width:720px){
+  .menu-btn{display:none}
+  .nav{display:flex}
+  .hero-card{padding:56px 48px}
+  .btns{flex-direction:row}
+  .countries{grid-template-columns:1fr 1fr;max-width:560px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .mentor{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .mentor-visual{margin-top:0;min-height:340px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.nav a.active{color:var(--blue);border-bottom:2px solid var(--blue)}
+.page-hero{background:var(--navy);color:#fff;padding:48px 0}
+.page-hero h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:10px}
+.page-hero p{color:#b9c6df;max-width:60ch}
+.dest-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.dest-card h3{font-size:1.4rem;color:var(--navy);margin-bottom:8px}
+.dest-card p{color:var(--muted);margin-bottom:14px}
+.dest-card ul{list-style:none;display:grid;gap:8px;font-size:.93rem}
+.dest-card li::before{content:"✓ ";color:var(--blue);font-weight:700}
+form.contact{display:grid;gap:16px;max-width:640px;margin-top:28px}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:.9rem;color:var(--navy)}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid #cbd3e1;border-radius:10px;font:inherit;background:#fff}
+.field textarea{min-height:120px;resize:vertical}
+.row2{display:grid;gap:16px}
+@media (min-width:720px){.row2{grid-template-columns:1fr 1fr}.dest-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}}
+
+.tabs{display:flex;background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:4px;max-width:420px;margin:24px 0 28px}
+.tab{flex:1;border:0;background:none;padding:10px 16px;border-radius:999px;font:inherit;font-weight:600;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(10,31,68,.15)}
+.panel[hidden]{display:none}
+.uni-grid{display:grid;gap:20px}
+.uni{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(10,31,68,.06)}
+.uni-img{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy-2),var(--navy))}
+.uni-img img{width:100%;height:100%;object-fit:cover}
+.flag{position:absolute;top:12px;inset-inline-start:12px;background:rgba(10,31,68,.85);color:#fff;font-size:.75rem;font-weight:600;padding:5px 10px;border-radius:999px}
+.uni-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.uni-body h3{font-size:1.15rem;color:var(--navy);line-height:1.3}
+.uni-body p{color:var(--muted);font-size:.92rem;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.75rem;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--blue-soft);color:var(--blue)}
+.tag.alt{background:var(--bg-alt);color:var(--navy);border:1px solid var(--line)}
+.soon{background:var(--bg-alt);border:1px dashed #cbd3e1;border-radius:var(--radius);padding:28px;color:var(--muted)}
+@media (min-width:720px){.uni-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.uni-grid{grid-template-columns:repeat(3,1fr)}}
+
+.hdr-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;padding:6px 12px;font:inherit;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+
+html[lang="ar"] body{font-family:"Cairo","Plus Jakarta Sans",system-ui,sans-serif}
+html[lang="ar"] .eyebrow,html[lang="ar"] .badge{letter-spacing:0}
+.lang,.logo{direction:ltr}
+/*form-page*/
+.form-page{padding:36px 0 56px}
+.form-page h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:12px}
+.form-wrap{max-width:720px}
+.form-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 14px}
+.form-head h2{font-size:1.2rem;margin:0}
+.req-note{font-size:.8rem;color:var(--muted)}
+.req-note b,.req{color:#dc2626}
+.panel-card{background:var(--bg-alt);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 18px;display:grid;gap:18px;min-width:0}
+.panel-card legend{float:left;width:100%;font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:2px}
+.panel-card legend+*{clear:both}
+.f{display:grid;gap:8px}
+.f-label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--navy)}
+.f-label .left{display:flex;align-items:center;gap:8px}
+.opt{font-weight:500;font-size:.78rem;color:var(--muted)}
+.chip{font-size:.7rem;font-weight:700;background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:999px}
+.help{font-size:.82rem;color:var(--muted)}
+.f input[type=text],.f input[type=tel],.f input[type=email],.f select,.f textarea{width:100%;padding:13px 14px;border:1px solid #cbd3e1;border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+.f textarea{min-height:120px;resize:vertical}
+.f input[type=tel],.f input[type=email]{direction:ltr}
+.phone{display:flex;gap:8px;direction:ltr}
+.phone input{flex:1;min-width:0}
+.prefix{display:flex;align-items:center;padding:0 14px;background:#fff;border:1px solid #cbd3e1;border-radius:10px;font-weight:600;white-space:nowrap}
+.choices{display:grid;gap:10px}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c2{grid-template-columns:1fr 1fr}
+.choice{position:relative;cursor:pointer;display:block}
+.choice input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.choice-body{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 6px;height:100%}
+.choice-body strong{font-size:.88rem;color:var(--navy)}
+.choice-body small{font-size:.74rem;color:var(--muted)}
+.flag-big{font-size:1.4rem;line-height:1.2}
+.choice input:checked+.choice-body{border-color:var(--blue);background:var(--blue-soft)}
+.choice input:focus-visible+.choice-body{outline:3px solid var(--blue);outline-offset:2px}
+.lang-choices .choice-body{flex-direction:row;align-items:flex-start;text-align:start;gap:10px;padding:12px}
+.lang-choices .choice-body>span:last-child{display:grid}
+.dot{width:16px;height:16px;border:2px solid #98a2b3;border-radius:50%;flex:none;margin-top:2px;background:#fff}
+.choice input:checked+.choice-body .dot{border-color:var(--blue);background:var(--blue);box-shadow:inset 0 0 0 3px #fff}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;color:var(--muted);margin:6px 0 18px}
+.consent input{margin-top:4px;width:18px;height:18px;accent-color:var(--blue);flex:none}
+.btn-dark{background:var(--navy);color:#fff;width:100%}
+.btn-dark:hover{background:#14306a}
+.link-btn{background:none;border:0;color:var(--muted);font:inherit;font-size:.82rem;cursor:pointer;display:block;margin:14px auto 0;text-decoration:underline}
+@media (max-width:420px){.panel-card{padding:16px}.lang-choices{grid-template-columns:1fr}}
+/*form-notice*/
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.notice{margin:20px 0 0;padding:14px 16px;border-radius:12px;font-weight:600;font-size:.95rem}
+.notice[hidden]{display:none}
+.notice.ok{background:#dcfce7;color:#14532d;border:1px solid #86efac}
+.notice.err{background:#fee2e2;color:#7f1d1d;border:1px solid #fca5a5}
+/*nav-pill*/
+:root{--nav-active:#cfe0ff;--nav-shadow:0 8px 24px rgba(26,86,219,.14)}
+.site-header{background:rgba(245,247,251,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:0}
+.site-header .container{height:auto;min-height:76px;padding-top:10px;padding-bottom:10px;gap:12px}
+/* Emplacement du logo : mettez votre fichier dans images/logo.png */
+.logo{display:flex;align-items:center;min-width:100px;height:48px}
+.logo-img{height:70px;width:auto;display:block}
+.logo-text{font-weight:800;font-size:1.15rem;color:var(--navy)}
+.logo-text span{color:var(--blue)}
+.logo-img[hidden],.logo-text[hidden]{display:none}
+/* Navbar en forme de pilule */
+.nav{display:none;gap:4px;padding:8px;background:#fff;border-radius:999px;box-shadow:var(--nav-shadow);font-weight:700;font-size:.95rem}
+.nav a{padding:12px 24px;border-radius:999px;color:var(--ink);border-bottom:0;white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover{background:#f1f5fb;color:var(--navy)}
+.nav a.active{background:var(--nav-active);color:var(--navy);border-bottom:0}
+.nav.open{display:flex;flex-direction:column;position:absolute;top:calc(100% - 4px);left:20px;right:20px;padding:10px;border-radius:24px;text-align:center;z-index:30}
+.hdr-right .lang{background:#fff;border:0;box-shadow:var(--nav-shadow)}
+.menu-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;background:#fff;box-shadow:var(--nav-shadow);font-size:1.3rem}
+@media (min-width:900px){
+  .site-header .container{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+  .nav{display:flex}
+  .menu-btn{display:none}
+  .hdr-right{justify-self:end}
+}
+@media (min-width:1000px){.nav a{padding:12px 30px}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="Visa Study">
+      <!-- Votre logo : placez-le dans images/logo.png (hauteur conseillée : 48 px). Tant qu'il est absent, le nom s'affiche en texte. -->
+      <img src="images/logo.png" alt="Visa Study" class="logo-img" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+      <span class="logo-text" hidden>Visa <span>Study</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="services.html">Filières</a>
+            <a href="réalisations.html">Réalisations</a>
+      <a href="contact.html" class="active" aria-current="page">Formulaire</a>
+      
+    </nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false">AR</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="form-page" id="dossier">
+    <div class="container form-wrap">
+      <h1>Parlons de votre projet d’études</h1>
+      <p class="section-intro">Complétez le formulaire ci-dessous afin que notre équipe puisse mieux comprendre votre projet et vous recontacter rapidement et personnellement.</p>
+
+      <p class="notice ok" id="notice-ok" role="status" hidden>Merci ! Votre demande a bien été envoyée. Un conseiller vous recontactera très bientôt.</p>
+      <p class="notice err" id="notice-error" role="alert" hidden>Une erreur est survenue. Vérifiez les champs et réessayez, ou contactez-nous sur WhatsApp.</p>
+
+      <form action="traitement.php" method="post">
+        <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+        <div class="form-head">
+          <h2><span aria-hidden="true">📝</span> Dossier de consultation</h2>
+          <span class="req-note"><b>*</b> Requis</span>
+        </div>
+
+        <fieldset class="panel-card">
+          <legend><span aria-hidden="true">👤</span> 1. Vos coordonnées de contact</legend>
+
+          <div class="f">
+            <label class="f-label" for="nom"><span>Nom et Prénom <b class="req">*</b></span></label>
+            <input type="text" id="nom" name="nom" placeholder="Ex. Yassine El Amrani" autocomplete="name" required>
+          </div>
+
+          <div class="f">
+            <label class="f-label" for="tel"><span>Numéro de téléphone appel <b class="req">*</b></span></label>
+            <div class="phone">
+              <span class="prefix">🇲🇦 +212</span>
+              <input type="tel" id="tel" name="tel" placeholder="6 12 34 56 78" autocomplete="tel-national" inputmode="tel" required>
+            </div>
+          </div>
+
+          <div class="f">
+            <label class="f-label" for="whatsapp">
+              <span class="left"><span>Numéro WhatsApp</span> <span class="chip">Recommandé</span></span>
+              <span class="opt">Optionnel</span>
+            </label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+212 6 XX XX XX XX (ou laisser vide si identique)" inputmode="tel">
+            <p class="help">Nos conseillers partagent directement le dossier PDF et les maquettes de cours via WhatsApp.</p>
+          </div>
+
+          <div class="f">
+            <label class="f-label" for="email"><span>Adresse e-mail valide <b class="req">*</b></span></label>
+            <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" autocomplete="email" required>
+          </div>
+        </fieldset>
+
+        <fieldset class="panel-card">
+          <legend><span aria-hidden="true">🎓</span> 2. Votre orientation académique</legend>
+
+          <div class="f">
+            <span class="f-label"><span>Pays d'accueil envisagé <b class="req">*</b></span></span>
+            <div class="choices c3">
+          <label class="choice"><input type="radio" name="pays" value="Russie" required><span class="choice-body"><span class="flag-big" aria-hidden="true">🇷🇺</span><strong>Russie</strong><small>Top mondial</small></span></label>
+          <label class="choice"><input type="radio" name="pays" value="Biélorussie"><span class="choice-body"><span class="flag-big" aria-hidden="true">🇧🇾</span><strong>Biélorussie</strong><small>Cadre calme</small></span></label>
+          <label class="choice"><input type="radio" name="pays" value="À conseiller"><span class="choice-body"><span class="flag-big" aria-hidden="true">❓</span><strong>À conseiller</strong><small>Sans avis</small></span></label>
+            </div>
+          </div>
+
+          <div class="f">
+            <label class="f-label" for="niveau"><span>Niveau d'études actuel <b class="req">*</b></span></label>
+            <select id="niveau" name="niveau" required>
+            <option value="" disabled selected>Sélectionnez votre niveau...</option>
+            <option value="Terminale (Baccalauréat en cours)">Terminale (Baccalauréat en cours)</option>
+            <option value="Baccalauréat obtenu">Baccalauréat obtenu</option>
+            <option value="Bac +1 / Bac +2">Bac +1 / Bac +2</option>
+            <option value="Licence (Bac +3)">Licence (Bac +3)</option>
+            <option value="Master ou plus">Master ou plus</option>
+            <option value="Autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="f">
+            <label class="f-label" for="filiere"><span>Filière ou domaine souhaité <b class="req">*</b></span></label>
+            <select id="filiere" name="filiere" required>
+            <option value="" disabled selected>Choisissez votre filière cible...</option>
+            <option value="Médecine">Médecine</option>
+            <option value="Pharmacie">Pharmacie</option>
+            <option value="Stomatologie (médecine dentaire)">Stomatologie (médecine dentaire)</option>
+            <option value="Informatique">Informatique</option>
+            <option value="Ingénierie">Ingénierie</option>
+            <option value="Sciences &amp; mathématiques">Sciences &amp; mathématiques</option>
+            <option value="Économie &amp; gestion">Économie &amp; gestion</option>
+            <option value="Langues &amp; sciences humaines">Langues &amp; sciences humaines</option>
+            <option value="Autre / Je ne sais pas encore">Autre / Je ne sais pas encore</option>
+            </select>
+          </div>
+
+          <div class="f">
+            <span class="f-label"><span>Langue d'enseignement souhaitée <b class="req">*</b></span></span>
+            <div class="choices c2 lang-choices">
+          <label class="choice"><input type="radio" name="langue" value="Russe" required checked><span class="choice-body"><span class="dot" aria-hidden="true"></span><span><strong>Russe</strong><small>Avec année préparatoire</small></span></span></label>
+          <label class="choice"><input type="radio" name="langue" value="Anglais 100%"><span class="choice-body"><span class="dot" aria-hidden="true"></span><span><strong>Anglais 100%</strong><small>Cursus bilingue direct</small></span></span></label>
+          <label class="choice"><input type="radio" name="langue" value="Français"><span class="choice-body"><span class="dot" aria-hidden="true"></span><span><strong>Français</strong><small>Sections spécifiques</small></span></span></label>
+          <label class="choice"><input type="radio" name="langue" value="À déterminer"><span class="choice-body"><span class="dot" aria-hidden="true"></span><span><strong>À déterminer</strong><small>Selon l'éligibilité</small></span></span></label>
+            </div>
+          </div>
+
+          <div class="f">
+            <label class="f-label" for="budget"><span>Budget annuel estimatif (Scolarité + Foyer)</span><span class="opt">Indicatif</span></label>
+            <select id="budget" name="budget">
+            <option value="" disabled selected>Sélectionner une fourchette (MAD)...</option>
+            <option value="Moins de 30 000 MAD / an">Moins de 30 000 MAD / an</option>
+            <option value="30 000 – 50 000 MAD / an">30 000 – 50 000 MAD / an</option>
+            <option value="50 000 – 80 000 MAD / an">50 000 – 80 000 MAD / an</option>
+            <option value="Plus de 80 000 MAD / an">Plus de 80 000 MAD / an</option>
+            <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+            </select>
+          </div>
+
+          <div class="f">
+            <label class="f-label" for="message"><span>Vos questions et précisions</span><span class="opt">Facultatif</span></label>
+            <textarea id="message" name="message" placeholder="Ex: Je souhaite savoir si mon baccalauréat SVT me permet d'accéder directement à la faculté de stomatologie sans concours supplémentaire..."></textarea>
+          </div>
+        </fieldset>
+
+        <label class="consent">
+          <input type="checkbox" name="consentement" value="oui" required>
+          <span>J'accepte le traitement de mes données personnelles par l'agence Visa Study conformément à la politique de confidentialité. Mes informations ne seront jamais cédées à des tiers.</span>
+        </label>
+
+        <button type="submit" class="btn btn-dark"><span aria-hidden="true">✈</span> Envoyer ma demande de consultation</button>
+        <button type="reset" class="link-btn">Réinitialiser le formulaire</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    /* Affiche le message de retour envoyé par traitement.php (?status=ok ou ?status=error) */
+    (function () {
+      var s = new URLSearchParams(location.search).get('status');
+      var el = document.getElementById(s === 'ok' ? 'notice-ok' : s === 'error' ? 'notice-error' : '');
+      if (!el) return;
+      el.hidden = false;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (history.replaceState) history.replaceState(null, '', location.pathname);
+    })();
+  </script>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Besoin d'un accompagnement personnalisé ?</h2>
+      <p>Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.</p>
+      <div class="btns">
+        <a href="#dossier" class="btn btn-primary">Demander une consultation gratuite</a>
+        <a href="https://wa.me/212629713827" class="btn btn-wa" target="_blank" rel="noopener">Contacter par WhatsApp : +212 629 713 827</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Visa Study Maroc. Tous droits réservés.</p>
+    <p>Accompagnement universitaire officiel • Maroc • Russie • Biélorussie</p>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+
+</script>
+<script>
+  /* Traduction FR / EN / AR : le HTML reste en français, ce dictionnaire donne les autres langues */
+  const DICT = {
+ "en": {
+  "Accueil": "Home",
+  "Destinations": "Destinations",
+  "Filières": "Programs",
+  "Formulaire": "Form",
+  "Parlons de votre projet d’études": "Let's talk about your study plans",
+  "Complétez le formulaire ci-dessous afin que notre équipe puisse mieux comprendre votre projet et vous recontacter rapidement et personnellement.": "Fill in the form below so our team can better understand your plans and get back to you quickly and personally.",
+  "Merci ! Votre demande a bien été envoyée. Un conseiller vous recontactera très bientôt.": "Thank you! Your request has been sent. An advisor will contact you very soon.",
+  "Une erreur est survenue. Vérifiez les champs et réessayez, ou contactez-nous sur WhatsApp.": "Something went wrong. Please check the fields and try again, or contact us on WhatsApp.",
+  "Dossier de consultation": "Consultation file",
+  "Requis": "Required",
+  "1. Vos coordonnées de contact": "1. Your contact details",
+  "Nom et Prénom": "Full name",
+  "Numéro de téléphone appel": "Phone number (calls)",
+  "Numéro WhatsApp": "WhatsApp number",
+  "Recommandé": "Recommended",
+  "Optionnel": "Optional",
+  "Nos conseillers partagent directement le dossier PDF et les maquettes de cours via WhatsApp.": "Our advisors share the PDF file and course outlines directly via WhatsApp.",
+  "Adresse e-mail valide": "Valid email address",
+  "2. Votre orientation académique": "2. Your academic orientation",
+  "Pays d'accueil envisagé": "Intended host country",
+  "Russie": "Russia",
+  "Top mondial": "World-class",
+  "Biélorussie": "Belarus",
+  "Cadre calme": "Calm setting",
+  "À conseiller": "Advice needed",
+  "Sans avis": "No preference",
+  "Niveau d'études actuel": "Current level of study",
+  "Sélectionnez votre niveau...": "Select your level...",
+  "Terminale (Baccalauréat en cours)": "Final year of high school (Baccalaureate in progress)",
+  "Baccalauréat obtenu": "Baccalaureate obtained",
+  "Bac +1 / Bac +2": "1–2 years of university",
+  "Licence (Bac +3)": "Bachelor's degree (3 years)",
+  "Master ou plus": "Master's or higher",
+  "Autre": "Other",
+  "Filière ou domaine souhaité": "Desired program or field",
+  "Choisissez votre filière cible...": "Choose your target program...",
+  "Médecine": "Medicine",
+  "Pharmacie": "Pharmacy",
+  "Stomatologie (médecine dentaire)": "Stomatology (dentistry)",
+  "Informatique": "Computer science",
+  "Ingénierie": "Engineering",
+  "Sciences & mathématiques": "Sciences & mathematics",
+  "Économie & gestion": "Economics & management",
+  "Langues & sciences humaines": "Languages & humanities",
+  "Autre / Je ne sais pas encore": "Other / I don't know yet",
+  "Langue d'enseignement souhaitée": "Preferred language of instruction",
+  "Russe": "Russian",
+  "Avec année préparatoire": "With preparatory year",
+  "Anglais 100%": "100% English",
+  "Cursus bilingue direct": "Direct bilingual track",
+  "Français": "French",
+  "Sections spécifiques": "Specific sections",
+  "À déterminer": "To be determined",
+  "Selon l'éligibilité": "Depending on eligibility",
+  "Budget annuel estimatif (Scolarité + Foyer)": "Estimated annual budget (Tuition + Dormitory)",
+  "Indicatif": "Indicative",
+  "Sélectionner une fourchette (MAD)...": "Select a range (MAD)...",
+  "Moins de 30 000 MAD / an": "Under 30,000 MAD / year",
+  "30 000 – 50 000 MAD / an": "30,000 – 50,000 MAD / year",
+  "50 000 – 80 000 MAD / an": "50,000 – 80,000 MAD / year",
+  "Plus de 80 000 MAD / an": "Over 80,000 MAD / year",
+  "Je ne sais pas encore": "I don't know yet",
+  "Vos questions et précisions": "Your questions and details",
+  "Facultatif": "Optional",
+  "J'accepte le traitement de mes données personnelles par l'agence Visa Study conformément à la politique de confidentialité. Mes informations ne seront jamais cédées à des tiers.": "I agree to the processing of my personal data by the Visa Study agency in accordance with the privacy policy. My information will never be shared with third parties.",
+  "Envoyer ma demande de consultation": "Send my consultation request",
+  "Réinitialiser le formulaire": "Reset the form",
+  "Besoin d'un accompagnement personnalisé ?": "Need personalised support?",
+  "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.": "Our advisors see you by appointment or answer your questions right away on WhatsApp.",
+  "Demander une consultation gratuite": "Request a free consultation",
+  "Contacter par WhatsApp : +212 629 713 827": "Contact us on WhatsApp: +212 629 713 827",
+  "© 2025 Visa Study Maroc. Tous droits réservés.": "© 2025 Visa Study Morocco. All rights reserved.",
+  "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie": "Official university support • Morocco • Russia • Belarus",
+  "Ex. Yassine El Amrani": "E.g. Yassine El Amrani",
+  "+212 6 XX XX XX XX (ou laisser vide si identique)": "+212 6 XX XX XX XX (or leave blank if the same)",
+  "votre.email@exemple.com": "your.email@example.com",
+  "Ex: Je souhaite savoir si mon baccalauréat SVT me permet d'accéder directement à la faculté de stomatologie sans concours supplémentaire...": "E.g. I would like to know whether my SVT baccalaureate gives me direct access to the faculty of stomatology without an additional entrance exam..."
+ },
+ "ar": {
+  "Accueil": "الرئيسية",
+  "Destinations": "الوجهات",
+  "Filières": "التخصصات",
+  "Formulaire": "الاستمارة",
+  "Parlons de votre projet d’études": "لنتحدث عن مشروع دراستك",
+  "Complétez le formulaire ci-dessous afin que notre équipe puisse mieux comprendre votre projet et vous recontacter rapidement et personnellement.": "املأ الاستمارة أدناه ليتمكن فريقنا من فهم مشروعك بشكل أفضل والتواصل معك بسرعة وبشكل شخصي.",
+  "Merci ! Votre demande a bien été envoyée. Un conseiller vous recontactera très bientôt.": "شكرًا لك! تم إرسال طلبك بنجاح. سيتواصل معك أحد مستشارينا قريبًا جدًا.",
+  "Une erreur est survenue. Vérifiez les champs et réessayez, ou contactez-nous sur WhatsApp.": "حدث خطأ ما. تحقق من الحقول وحاول مرة أخرى، أو تواصل معنا عبر واتساب.",
+  "Dossier de consultation": "ملف الاستشارة",
+  "Requis": "مطلوب",
+  "1. Vos coordonnées de contact": "1. بيانات الاتصال الخاصة بك",
+  "Nom et Prénom": "الاسم الكامل",
+  "Numéro de téléphone appel": "رقم الهاتف (للمكالمات)",
+  "Numéro WhatsApp": "رقم واتساب",
+  "Recommandé": "موصى به",
+  "Optionnel": "اختياري",
+  "Nos conseillers partagent directement le dossier PDF et les maquettes de cours via WhatsApp.": "يشارك مستشارونا الملف بصيغة PDF ونماذج الدروس مباشرة عبر واتساب.",
+  "Adresse e-mail valide": "عنوان بريد إلكتروني صالح",
+  "2. Votre orientation académique": "2. توجهك الأكاديمي",
+  "Pays d'accueil envisagé": "بلد الدراسة المرغوب",
+  "Russie": "روسيا",
+  "Top mondial": "مستوى عالمي",
+  "Biélorussie": "بيلاروسيا",
+  "Cadre calme": "أجواء هادئة",
+  "À conseiller": "أحتاج إلى نصيحة",
+  "Sans avis": "بدون تفضيل",
+  "Niveau d'études actuel": "المستوى الدراسي الحالي",
+  "Sélectionnez votre niveau...": "اختر مستواك...",
+  "Terminale (Baccalauréat en cours)": "السنة الثانية باكالوريا (الباكالوريا قيد التحضير)",
+  "Baccalauréat obtenu": "حاصل على الباكالوريا",
+  "Bac +1 / Bac +2": "سنة أو سنتان من التعليم العالي",
+  "Licence (Bac +3)": "إجازة (3 سنوات)",
+  "Master ou plus": "ماستر فما فوق",
+  "Autre": "أخرى",
+  "Filière ou domaine souhaité": "التخصص أو المجال المرغوب",
+  "Choisissez votre filière cible...": "اختر التخصص المستهدف...",
+  "Médecine": "الطب",
+  "Pharmacie": "الصيدلة",
+  "Stomatologie (médecine dentaire)": "طب الأسنان (ستوماتولوجيا)",
+  "Informatique": "المعلوماتية",
+  "Ingénierie": "الهندسة",
+  "Sciences & mathématiques": "العلوم والرياضيات",
+  "Économie & gestion": "الاقتصاد والتسيير",
+  "Langues & sciences humaines": "اللغات والعلوم الإنسانية",
+  "Autre / Je ne sais pas encore": "أخرى / لا أعرف بعد",
+  "Langue d'enseignement souhaitée": "لغة التدريس المفضلة",
+  "Russe": "الروسية",
+  "Avec année préparatoire": "مع سنة تحضيرية",
+  "Anglais 100%": "الإنجليزية 100%",
+  "Cursus bilingue direct": "مسار ثنائي اللغة مباشر",
+  "Français": "الفرنسية",
+  "Sections spécifiques": "أقسام محددة",
+  "À déterminer": "يُحدَّد لاحقًا",
+  "Selon l'éligibilité": "حسب الأهلية",
+  "Budget annuel estimatif (Scolarité + Foyer)": "الميزانية السنوية التقديرية (الرسوم + السكن)",
+  "Indicatif": "تقريبي",
+  "Sélectionner une fourchette (MAD)...": "اختر فئة (بالدرهم)...",
+  "Moins de 30 000 MAD / an": "أقل من 30000 درهم / سنة",
+  "30 000 – 50 000 MAD / an": "من 30000 إلى 50000 درهم / سنة",
+  "50 000 – 80 000 MAD / an": "من 50000 إلى 80000 درهم / سنة",
+  "Plus de 80 000 MAD / an": "أكثر من 80000 درهم / سنة",
+  "Je ne sais pas encore": "لا أعرف بعد",
+  "Vos questions et précisions": "أسئلتك وتوضيحاتك",
+  "Facultatif": "اختياري",
+  "J'accepte le traitement de mes données personnelles par l'agence Visa Study conformément à la politique de confidentialité. Mes informations ne seront jamais cédées à des tiers.": "أوافق على معالجة بياناتي الشخصية من طرف وكالة فيزا ستدي وفق سياسة الخصوصية. ولن تُحال معلوماتي أبدًا إلى أطراف ثالثة.",
+  "Envoyer ma demande de consultation": "أرسل طلب الاستشارة",
+  "Réinitialiser le formulaire": "إعادة تعيين الاستمارة",
+  "Besoin d'un accompagnement personnalisé ?": "هل تحتاج إلى مواكبة شخصية؟",
+  "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.": "يستقبلك مستشارونا بموعد مسبق أو يجيبون عن استفساراتك فورًا عبر واتساب.",
+  "Demander une consultation gratuite": "اطلب استشارة مجانية",
+  "Contacter par WhatsApp : +212 629 713 827": "تواصل معنا عبر واتساب: ⁦+212 629 713 827⁩",
+  "© 2025 Visa Study Maroc. Tous droits réservés.": "© 2025 فيزا ستدي المغرب. جميع الحقوق محفوظة.",
+  "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie": "مواكبة جامعية رسمية • المغرب • روسيا • بيلاروسيا",
+  "Ex. Yassine El Amrani": "مثال: ياسين العمراني",
+  "+212 6 XX XX XX XX (ou laisser vide si identique)": "+212 6 XX XX XX XX (أو اتركه فارغًا إن كان نفس الرقم)",
+  "votre.email@exemple.com": "your.email@example.com",
+  "Ex: Je souhaite savoir si mon baccalauréat SVT me permet d'accéder directement à la faculté de stomatologie sans concours supplémentaire...": "مثال: أود معرفة ما إذا كانت باكالوريا علوم الحياة والأرض تتيح لي الولوج مباشرة إلى كلية طب الأسنان دون مباراة إضافية..."
+ }
+};
+  const TITLES = {"en": {"Formulaire – Visa Study Maroc": "Form – Visa Study Morocco"}, "ar": {"Formulaire – Visa Study Maroc": "الاستمارة – فيزا ستدي المغرب"}};
+  const originals = new WeakMap();
+  const frTitle = document.title;
+
+  function applyLang(lang) {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => {
+      if (['SCRIPT', 'STYLE'].includes(n.parentElement.tagName)) return;
+      if (!originals.has(n)) originals.set(n, n.nodeValue);
+      const original = originals.get(n);
+      if (lang === 'fr') { n.nodeValue = original; return; }
+      const key = original.trim().replace(/\s+/g, ' ');
+      const t = DICT[lang][key];
+      if (t) n.nodeValue = original.replace(/\S[\s\S]*\S|\S/, t);
+    });
+    /* placeholders des champs */
+    document.querySelectorAll('[placeholder]').forEach(el => {
+      if (!el.dataset.phFr) el.dataset.phFr = el.getAttribute('placeholder');
+      el.setAttribute('placeholder', lang === 'fr' ? el.dataset.phFr : (DICT[lang][el.dataset.phFr] || el.dataset.phFr));
+    });
+    document.title = lang === 'fr' ? frTitle : (TITLES[lang][frTitle] || frTitle);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang button').forEach(b =>
+      b.setAttribute('aria-pressed', b.dataset.lang === lang));
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang button').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+  let saved = 'fr';
+  try { saved = localStorage.getItem('lang') || 'fr'; } catch (e) {}
+  if (saved === 'en' || saved === 'ar') applyLang(saved);
+</script>
+</body>
+</html>

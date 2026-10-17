@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Destinations – Visa Study Maroc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Feuille de style commune à toutes les pages (mobile first) */
+:root{
+  --navy:#0a1f44; --navy-2:#12315f; --blue:#1a56db; --blue-soft:#e8f0fe;
+  --ink:#0f172a; --muted:#5b6478; --line:#e5e9f0; --bg:#ffffff; --bg-alt:#f5f7fb;
+  --green:#22c55e; --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.15rem;color:var(--navy)}
+.logo span{color:var(--blue)}
+.nav{display:none;gap:28px;font-weight:600;font-size:.95rem}
+.nav a:hover{color:var(--blue)}
+.menu-btn{background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--navy)}
+.nav.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:#fff;padding:16px 20px;border-bottom:1px solid var(--line)}
+
+/* Hero */
+.hero{padding:20px 0 0}
+.hero-card{background:var(--navy);color:#fff;border-radius:20px;padding:32px 24px}
+.badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;font-weight:800;margin:18px 0 14px}
+.hero p.lead{color:#b9c6df;max-width:52ch}
+.btns{display:flex;flex-direction:column;gap:12px;margin:26px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:10px;font-weight:700;font-size:.98rem;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1445b4}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-wa{background:var(--green);color:#fff}
+.countries{display:grid;gap:12px}
+.country{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+.country strong{display:block;font-size:1rem}
+.country span{font-size:.85rem;color:#b9c6df}
+
+/* Sections */
+section{padding:56px 0}
+.eyebrow{color:var(--blue);font-weight:700;font-size:.8rem;margin-bottom:8px}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1.2;font-weight:800;color:var(--navy);margin-bottom:14px}
+.section-intro{color:var(--muted);max-width:60ch}
+
+/* Mentorat */
+.mentor-visual{margin-top:28px;border-radius:18px;overflow:hidden;position:relative;min-height:260px;
+  background:linear-gradient(135deg,var(--navy-2),var(--navy));color:#fff;display:flex;align-items:flex-end}
+.mentor-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mentor-caption{position:relative;padding:24px;background:linear-gradient(transparent,rgba(10,31,68,.9));width:100%}
+.mentor-caption small{display:block;font-size:.78rem;color:#b9c6df;margin-bottom:4px}
+.mentor-caption h3{font-size:1.4rem;line-height:1.25}
+.mentor-note{margin-top:16px;color:var(--muted);font-size:.95rem}
+
+/* Services */
+.services{background:var(--bg-alt)}
+.grid{display:grid;gap:18px;margin-top:32px}
+.service{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.icon{width:44px;height:44px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-size:1.3rem;margin-bottom:14px}
+.service h3{font-size:1.1rem;color:var(--navy);margin-bottom:6px}
+.service p{color:var(--muted);font-size:.93rem}
+
+/* CTA */
+.cta{background:var(--navy);color:#fff;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#b9c6df;max-width:56ch;margin:0 auto}
+.cta .btns{max-width:420px;margin:28px auto 0}
+
+/* Footer */
+footer{background:#071634;color:#8fa0c2;text-align:center;font-size:.82rem;padding:24px 0}
+
+@media (min-width:720px){
+  .menu-btn{display:none}
+  .nav{display:flex}
+  .hero-card{padding:56px 48px}
+  .btns{flex-direction:row}
+  .countries{grid-template-columns:1fr 1fr;max-width:560px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .mentor{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .mentor-visual{margin-top:0;min-height:340px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.nav a.active{color:var(--blue);border-bottom:2px solid var(--blue)}
+.page-hero{background:var(--navy);color:#fff;padding:48px 0}
+.page-hero h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:10px}
+.page-hero p{color:#b9c6df;max-width:60ch}
+.dest-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.dest-card h3{font-size:1.4rem;color:var(--navy);margin-bottom:8px}
+.dest-card p{color:var(--muted);margin-bottom:14px}
+.dest-card ul{list-style:none;display:grid;gap:8px;font-size:.93rem}
+.dest-card li::before{content:"✓ ";color:var(--blue);font-weight:700}
+form.contact{display:grid;gap:16px;max-width:640px;margin-top:28px}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:.9rem;color:var(--navy)}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid #cbd3e1;border-radius:10px;font:inherit;background:#fff}
+.field textarea{min-height:120px;resize:vertical}
+.row2{display:grid;gap:16px}
+@media (min-width:720px){.row2{grid-template-columns:1fr 1fr}.dest-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}}
+
+.tabs{display:flex;background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:4px;max-width:420px;margin:24px 0 28px}
+.tab{flex:1;border:0;background:none;padding:10px 16px;border-radius:999px;font:inherit;font-weight:600;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(10,31,68,.15)}
+.panel[hidden]{display:none}
+.uni-grid{display:grid;gap:20px}
+.uni{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(10,31,68,.06)}
+.uni-img{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy-2),var(--navy))}
+.uni-img img{width:100%;height:100%;object-fit:cover}
+.flag{position:absolute;top:12px;inset-inline-start:12px;background:rgba(10,31,68,.85);color:#fff;font-size:.75rem;font-weight:600;padding:5px 10px;border-radius:999px}
+.uni-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.uni-body h3{font-size:1.15rem;color:var(--navy);line-height:1.3}
+.uni-body p{color:var(--muted);font-size:.92rem;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.75rem;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--blue-soft);color:var(--blue)}
+.tag.alt{background:var(--bg-alt);color:var(--navy);border:1px solid var(--line)}
+.soon{background:var(--bg-alt);border:1px dashed #cbd3e1;border-radius:var(--radius);padding:28px;color:var(--muted)}
+@media (min-width:720px){.uni-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.uni-grid{grid-template-columns:repeat(3,1fr)}}
+
+.hdr-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;padding:6px 12px;font:inherit;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+
+html[lang="ar"] body{font-family:"Cairo","Plus Jakarta Sans",system-ui,sans-serif}
+html[lang="ar"] .eyebrow,html[lang="ar"] .badge{letter-spacing:0}
+.lang,.logo{direction:ltr}
+/*nav-pill*/
+:root{--nav-active:#cfe0ff;--nav-shadow:0 8px 24px rgba(26,86,219,.14)}
+.site-header{background:rgba(245,247,251,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:0}
+.site-header .container{height:auto;min-height:76px;padding-top:10px;padding-bottom:10px;gap:12px}
+/* Emplacement du logo : mettez votre fichier dans images/logo.png */
+.logo{display:flex;align-items:center;min-width:100px;height:48px}
+.logo-img{height:70px;width:auto;display:block}
+.logo-text{font-weight:800;font-size:1.15rem;color:var(--navy)}
+.logo-text span{color:var(--blue)}
+.logo-img[hidden],.logo-text[hidden]{display:none}
+/* Navbar en forme de pilule */
+.nav{display:none;gap:4px;padding:8px;background:#fff;border-radius:999px;box-shadow:var(--nav-shadow);font-weight:700;font-size:.95rem}
+.nav a{padding:12px 24px;border-radius:999px;color:var(--ink);border-bottom:0;white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover{background:#f1f5fb;color:var(--navy)}
+.nav a.active{background:var(--nav-active);color:var(--navy);border-bottom:0}
+.nav.open{display:flex;flex-direction:column;position:absolute;top:calc(100% - 4px);left:20px;right:20px;padding:10px;border-radius:24px;text-align:center;z-index:30}
+.hdr-right .lang{background:#fff;border:0;box-shadow:var(--nav-shadow)}
+.menu-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;background:#fff;box-shadow:var(--nav-shadow);font-size:1.3rem}
+@media (min-width:900px){
+  .site-header .container{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+  .nav{display:flex}
+  .menu-btn{display:none}
+  .hdr-right{justify-self:end}
+}
+@media (min-width:1000px){.nav a{padding:12px 30px}}
+/*uni-photo*/
+.uni-img img[hidden]{display:none}
+.uni-img img{position:absolute;inset:0;transition:transform .5s ease}
+.uni:hover .uni-img img{transform:scale(1.04)}
+.uni-img{overflow:hidden}
+.uni-img .flag{z-index:1}
+
+/* ===== Corrections responsive ===== */
+/* "clip" empêche le défilement horizontal SANS casser le header collant (sticky) */
+body{overflow-x:clip}
+.lang button{min-height:34px}
+.nav.open a{display:block}
+.uni-body h3,.uni-body p{overflow-wrap:break-word}
+@media (hover:none){.uni:hover .uni-img img{transform:none}}
+@media (max-width:480px){
+  section{padding:40px 0}
+  .container{padding:0 16px}
+  .site-header .container{min-height:68px}
+  .logo{min-width:80px}
+  .logo-img{height:52px}
+  .lang button{padding:6px 9px}
+  .nav.open{left:16px;right:16px}
+  .tabs{max-width:none}
+  .uni-body{padding:16px}
+}
+@media (max-width:360px){
+  .logo-img{height:44px}
+  .hdr-right{gap:8px}
+  .lang button{padding:6px 7px;font-size:.72rem}
+  .menu-btn{width:40px;height:40px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="Visa Study">
+      <!-- Votre logo : placez-le dans images/logo.png. Tant qu'il est absent, le nom s'affiche en texte. -->
+      <img src="images/logo.png" alt="Visa Study" class="logo-img" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+      <span class="logo-text" hidden>Visa <span>Study</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="destinations.html" class="active" aria-current="page">Destinations</a>
+      <a href="services.html">Filières</a>
+      <a href="realisations.html">Réalisations</a>
+      <a href="contact.html">Formulaire</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false">AR</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="container">
+      <p class="eyebrow">PERSPECTIVES INTERNATIONALES</p>
+      <h2>Nos destinations d’excellence</h2>
+      <p class="section-intro">Deux nations aux traditions académiques centenaires proposant des diplômes reconnus et des infrastructures scientifiques de pointe.</p>
+
+      <div class="tabs" role="tablist" aria-label="Choisir un pays">
+        <button class="tab" role="tab" id="tab-ru" aria-selected="true" aria-controls="panel-ru">Russie</button>
+        <button class="tab" role="tab" id="tab-by" aria-selected="false" aria-controls="panel-by">Biélorussie</button>
+      </div>
+
+      <div class="panel" id="panel-ru" role="tabpanel" aria-labelledby="tab-ru">
+        <div class="uni-grid">
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image5.png" alt="Moscow State University" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇷🇺 Fédération de Russie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Moscow State University</h3>
+            <p>C’est l’une des universités les plus prestigieuses de Russie. Elle est particulièrement réputée pour les mathématiques, l’informatique, les sciences, l’économie et la recherche.</p>
+            <div class="tags"><span class="tag">+450 Universités d’État</span><span class="tag">Diplômes accrédités</span><span class="tag alt">Année préparatoire (Podfak)</span></div>
+          </div>
+        </article>
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image6.png" alt="Université d’État de Saint-Pétersbourg" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇷🇺 Fédération de Russie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université d’État de Saint-Pétersbourg</h3>
+            <p>Une université historique reconnue pour ses formations en informatique, sciences, langues, économie et relations internationales. La ville est connue pour son patrimoine culturel et sa vie étudiante.</p>
+            <div class="tags"><span class="tag">+450 Universités d’État</span><span class="tag">Diplômes accrédités</span><span class="tag alt">Année préparatoire (Podfak)</span></div>
+          </div>
+        </article>
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image7.png" alt="Université fédérale de Kazan" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇷🇺 Fédération de Russie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université fédérale de Kazan</h3>
+            <p>Fondée en 1804, elle possède une longue tradition universitaire. Elle propose des formations en informatique, ingénierie, médecine, sciences et économie. Kazan est une ville étudiante dynamique, souvent intéressante pour les étudiants internationaux.</p>
+            <div class="tags"><span class="tag">+450 Universités d’État</span><span class="tag">Diplômes accrédités</span><span class="tag alt">Année préparatoire (Podfak)</span></div>
+          </div>
+        </article>
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image8.png" alt="Université d’État d’Orel" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇷🇺 Fédération de Russie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université d’État d’Orel</h3>
+            <p>Université publique pluridisciplinaire proposant des études en ingénierie, informatique, sciences, éducation et médecine. Orel est une ville plus petite que Moscou ou Saint-Pétersbourg, ce qui peut offrir un environnement d’études plus calme.</p>
+            <div class="tags"><span class="tag">+450 Universités d’État</span><span class="tag">Diplômes accrédités</span><span class="tag alt">Année préparatoire (Podfak)</span></div>
+          </div>
+        </article>
+        <article class="uni">
+          <div class="uni-img">
+            <!-- Attention : le nom du fichier contient un espace ("image 9.png"). Renommez-le en image9.png puis changez ce chemin. -->
+            <img src="images/image%209.png" alt="Université fédérale baltique Emmanuel-Kant" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇷🇺 Fédération de Russie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université fédérale baltique Emmanuel-Kant</h3>
+            <p>Elle propose des formations en informatique, ingénierie, sciences naturelles, économie et sciences humaines. Kaliningrad se trouve sur la mer Baltique, séparée du reste du territoire russe par plusieurs pays.</p>
+            <div class="tags"><span class="tag">+450 Universités d’État</span><span class="tag">Diplômes accrédités</span><span class="tag alt">Année préparatoire (Podfak)</span></div>
+          </div>
+        </article>
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image10.png" alt="Université des sciences et technologies d’Oufa" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇷🇺 Fédération de Russie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université des sciences et technologies d’Oufa</h3>
+            <p>Oufa compte plusieurs établissements d’enseignement supérieur. L’Université des sciences et technologies d’Oufa est notamment orientée vers l’ingénierie, l’informatique, les technologies industrielles et les sciences appliquées.</p>
+            <div class="tags"><span class="tag">+450 Universités d’État</span><span class="tag">Diplômes accrédités</span><span class="tag alt">Année préparatoire (Podfak)</span></div>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-by" role="tabpanel" aria-labelledby="tab-by" hidden>
+        <div class="uni-grid">
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image11.png" alt="Université d’État de Biélorussie" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇧🇾 République de Biélorussie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université d’État de Biélorussie</h3>
+            <p>C’est une grande université publique et l’un des établissements les plus connus du pays. Elle propose des formations en informatique, mathématiques, sciences, économie et autres disciplines. Minsk offre également davantage de possibilités de stages et d’activités professionnelles.</p>
+            <div class="tags"><span class="tag">Coût de vie modéré</span><span class="tag alt">Environnement calme &amp; sûr</span><span class="tag alt">Formations médicales réputées</span></div>
+          </div>
+        </article>
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image12.png" alt="Université technique d’État de Brest" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇧🇾 République de Biélorussie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université technique d’État de Brest</h3>
+            <p>Elle est principalement orientée vers les sciences techniques et l’ingénierie. Elle peut être intéressante pour les étudiants qui souhaitent étudier l’informatique, les technologies, les systèmes techniques ou les domaines liés à l’industrie.</p>
+            <div class="tags"><span class="tag">Coût de vie modéré</span><span class="tag alt">Environnement calme &amp; sûr</span><span class="tag alt">Formations médicales réputées</span></div>
+          </div>
+        </article>
+        <article class="uni">
+          <div class="uni-img">
+            <img src="images/image13.png" alt="Université d’État Yanka-Kupala de Grodno" loading="lazy" onerror="this.hidden=true">
+            <span class="flag">🇧🇾 République de Biélorussie</span>
+          </div>
+          <div class="uni-body">
+            <h3>Université d’État Yanka-Kupala de Grodno</h3>
+            <p>C’est une université publique pluridisciplinaire qui propose des formations en informatique, ingénierie, sciences, économie et langues. Grodno est une ville relativement compacte, qui peut convenir aux étudiants recherchant un cadre de vie plus calme que la capitale.</p>
+            <div class="tags"><span class="tag">Coût de vie modéré</span><span class="tag alt">Environnement calme &amp; sûr</span><span class="tag alt">Formations médicales réputées</span></div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Besoin d'un accompagnement personnalisé ?</h2>
+      <p>Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.</p>
+      <div class="btns">
+        <a href="contact.html" class="btn btn-primary">Demander une consultation gratuite</a>
+        <a href="https://wa.me/212629713827" class="btn btn-wa" target="_blank" rel="noopener">Contacter par WhatsApp : +212 629 713 827</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Visa Study Maroc. Tous droits réservés.</p>
+    <p>Accompagnement universitaire officiel • Maroc • Russie • Biélorussie</p>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  /* Ferme le menu mobile après un clic sur un lien */
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => {
+      const on = x === t;
+      x.setAttribute('aria-selected', on);
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  }));
+</script>
+<script>
+  /* Traduction FR / EN / AR : le HTML reste en français, ce dictionnaire donne les autres langues.
+     Traduit les textes ET les attributs alt, aria-label, placeholder, title. */
+  const DICT = {
+ "en": {
+  "Accueil": "Home",
+  "Destinations": "Destinations",
+  "Filières": "Programs",
+  "Réalisations": "Achievements",
+  "Formulaire": "Form",
+  "Navigation principale": "Main navigation",
+  "Ouvrir le menu": "Open menu",
+  "Choisir un pays": "Choose a country",
+  "PERSPECTIVES INTERNATIONALES": "INTERNATIONAL PERSPECTIVES",
+  "Nos destinations d’excellence": "Our destinations of excellence",
+  "Deux nations aux traditions académiques centenaires proposant des diplômes reconnus et des infrastructures scientifiques de pointe.": "Two nations with centuries-old academic traditions, offering recognised degrees and cutting-edge scientific facilities.",
+  "Russie": "Russia",
+  "Biélorussie": "Belarus",
+  "🇷🇺 Fédération de Russie": "🇷🇺 Russian Federation",
+  "Moscow State University": "Moscow State University",
+  "C’est l’une des universités les plus prestigieuses de Russie. Elle est particulièrement réputée pour les mathématiques, l’informatique, les sciences, l’économie et la recherche.": "One of the most prestigious universities in Russia. It is especially renowned for mathematics, computer science, sciences, economics and research.",
+  "+450 Universités d’État": "+450 State universities",
+  "Diplômes accrédités": "Accredited degrees",
+  "Année préparatoire (Podfak)": "Preparatory year (Podfak)",
+  "Université d’État de Saint-Pétersbourg": "Saint Petersburg State University",
+  "Une université historique reconnue pour ses formations en informatique, sciences, langues, économie et relations internationales. La ville est connue pour son patrimoine culturel et sa vie étudiante.": "A historic university known for its programs in computer science, sciences, languages, economics and international relations. The city is famous for its cultural heritage and student life.",
+  "Université fédérale de Kazan": "Kazan Federal University",
+  "Fondée en 1804, elle possède une longue tradition universitaire. Elle propose des formations en informatique, ingénierie, médecine, sciences et économie. Kazan est une ville étudiante dynamique, souvent intéressante pour les étudiants internationaux.": "Founded in 1804, it has a long academic tradition. It offers programs in computer science, engineering, medicine, sciences and economics. Kazan is a lively student city, often attractive to international students.",
+  "Université d’État d’Orel": "Oryol State University",
+  "Université publique pluridisciplinaire proposant des études en ingénierie, informatique, sciences, éducation et médecine. Orel est une ville plus petite que Moscou ou Saint-Pétersbourg, ce qui peut offrir un environnement d’études plus calme.": "A multidisciplinary public university offering studies in engineering, computer science, sciences, education and medicine. Oryol is smaller than Moscow or Saint Petersburg, which can offer a calmer study environment.",
+  "Université fédérale baltique Emmanuel-Kant": "Immanuel Kant Baltic Federal University",
+  "Elle propose des formations en informatique, ingénierie, sciences naturelles, économie et sciences humaines. Kaliningrad se trouve sur la mer Baltique, séparée du reste du territoire russe par plusieurs pays.": "It offers programs in computer science, engineering, natural sciences, economics and humanities. Kaliningrad lies on the Baltic Sea, separated from the rest of Russian territory by several countries.",
+  "Université des sciences et technologies d’Oufa": "Ufa University of Science and Technology",
+  "Oufa compte plusieurs établissements d’enseignement supérieur. L’Université des sciences et technologies d’Oufa est notamment orientée vers l’ingénierie, l’informatique, les technologies industrielles et les sciences appliquées.": "Ufa has several higher-education institutions. The Ufa University of Science and Technology focuses in particular on engineering, computer science, industrial technologies and applied sciences.",
+  "🇧🇾 République de Biélorussie": "🇧🇾 Republic of Belarus",
+  "Université d’État de Biélorussie": "Belarusian State University",
+  "C’est une grande université publique et l’un des établissements les plus connus du pays. Elle propose des formations en informatique, mathématiques, sciences, économie et autres disciplines. Minsk offre également davantage de possibilités de stages et d’activités professionnelles.": "A large public university and one of the best-known institutions in the country. It offers programs in computer science, mathematics, sciences, economics and other fields. Minsk also offers more opportunities for internships and professional activities.",
+  "Coût de vie modéré": "Moderate cost of living",
+  "Environnement calme & sûr": "Calm & safe environment",
+  "Formations médicales réputées": "Well-regarded medical programs",
+  "Université technique d’État de Brest": "Brest State Technical University",
+  "Elle est principalement orientée vers les sciences techniques et l’ingénierie. Elle peut être intéressante pour les étudiants qui souhaitent étudier l’informatique, les technologies, les systèmes techniques ou les domaines liés à l’industrie.": "It focuses mainly on technical sciences and engineering. It can suit students who want to study computer science, technology, technical systems or industry-related fields.",
+  "Université d’État Yanka-Kupala de Grodno": "Yanka Kupala State University of Grodno",
+  "C’est une université publique pluridisciplinaire qui propose des formations en informatique, ingénierie, sciences, économie et langues. Grodno est une ville relativement compacte, qui peut convenir aux étudiants recherchant un cadre de vie plus calme que la capitale.": "A multidisciplinary public university offering programs in computer science, engineering, sciences, economics and languages. Grodno is a relatively compact city, which can suit students looking for a calmer lifestyle than the capital.",
+  "Besoin d'un accompagnement personnalisé ?": "Need personalised support?",
+  "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.": "Our advisors see you by appointment or answer your questions right away on WhatsApp.",
+  "Demander une consultation gratuite": "Request a free consultation",
+  "Contacter par WhatsApp : +212 629 713 827": "Contact us on WhatsApp: +212 629 713 827",
+  "© 2025 Visa Study Maroc. Tous droits réservés.": "© 2025 Visa Study Morocco. All rights reserved.",
+  "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie": "Official university support • Morocco • Russia • Belarus"
+ },
+ "ar": {
+  "Accueil": "الرئيسية",
+  "Destinations": "الوجهات",
+  "Filières": "التخصصات",
+  "Réalisations": "إنجازاتنا",
+  "Formulaire": "الاستمارة",
+  "Navigation principale": "التنقل الرئيسي",
+  "Ouvrir le menu": "فتح القائمة",
+  "Choisir un pays": "اختر بلدًا",
+  "PERSPECTIVES INTERNATIONALES": "آفاق دولية",
+  "Nos destinations d’excellence": "وجهاتنا المتميزة",
+  "Deux nations aux traditions académiques centenaires proposant des diplômes reconnus et des infrastructures scientifiques de pointe.": "دولتان بتقاليد أكاديمية عريقة تمتد لقرون، تقدمان شهادات معترفًا بها وبنية علمية متطورة.",
+  "Russie": "روسيا",
+  "Biélorussie": "بيلاروسيا",
+  "🇷🇺 Fédération de Russie": "🇷🇺 الاتحاد الروسي",
+  "Moscow State University": "جامعة موسكو الحكومية",
+  "C’est l’une des universités les plus prestigieuses de Russie. Elle est particulièrement réputée pour les mathématiques, l’informatique, les sciences, l’économie et la recherche.": "إحدى أرقى الجامعات في روسيا، وتشتهر بوجه خاص بالرياضيات والمعلوماتية والعلوم والاقتصاد والبحث العلمي.",
+  "+450 Universités d’État": "+450 جامعة حكومية",
+  "Diplômes accrédités": "شهادات معتمدة",
+  "Année préparatoire (Podfak)": "سنة تحضيرية (بودفاك)",
+  "Université d’État de Saint-Pétersbourg": "جامعة سانت بطرسبرغ الحكومية",
+  "Une université historique reconnue pour ses formations en informatique, sciences, langues, économie et relations internationales. La ville est connue pour son patrimoine culturel et sa vie étudiante.": "جامعة تاريخية معروفة بتكويناتها في المعلوماتية والعلوم واللغات والاقتصاد والعلاقات الدولية. وتشتهر المدينة بتراثها الثقافي وحياتها الطلابية.",
+  "Université fédérale de Kazan": "جامعة قازان الفيدرالية",
+  "Fondée en 1804, elle possède une longue tradition universitaire. Elle propose des formations en informatique, ingénierie, médecine, sciences et économie. Kazan est une ville étudiante dynamique, souvent intéressante pour les étudiants internationaux.": "تأسست عام 1804 ولها تقليد جامعي عريق. تقدم تكوينات في المعلوماتية والهندسة والطب والعلوم والاقتصاد. وقازان مدينة طلابية نابضة بالحياة، وغالبًا ما تهمّ الطلبة الدوليين.",
+  "Université d’État d’Orel": "جامعة أوريول الحكومية",
+  "Université publique pluridisciplinaire proposant des études en ingénierie, informatique, sciences, éducation et médecine. Orel est une ville plus petite que Moscou ou Saint-Pétersbourg, ce qui peut offrir un environnement d’études plus calme.": "جامعة عمومية متعددة التخصصات تقدم دراسات في الهندسة والمعلوماتية والعلوم والتربية والطب. وأوريول مدينة أصغر من موسكو وسانت بطرسبرغ، ما قد يوفر بيئة دراسة أكثر هدوءًا.",
+  "Université fédérale baltique Emmanuel-Kant": "جامعة إيمانويل كانط الفيدرالية البلطيقية",
+  "Elle propose des formations en informatique, ingénierie, sciences naturelles, économie et sciences humaines. Kaliningrad se trouve sur la mer Baltique, séparée du reste du territoire russe par plusieurs pays.": "تقدم تكوينات في المعلوماتية والهندسة والعلوم الطبيعية والاقتصاد والعلوم الإنسانية. وتقع كالينينغراد على بحر البلطيق، وتفصلها عدة دول عن بقية الأراضي الروسية.",
+  "Université des sciences et technologies d’Oufa": "جامعة أوفا للعلوم والتكنولوجيا",
+  "Oufa compte plusieurs établissements d’enseignement supérieur. L’Université des sciences et technologies d’Oufa est notamment orientée vers l’ingénierie, l’informatique, les technologies industrielles et les sciences appliquées.": "تضم أوفا عدة مؤسسات للتعليم العالي. وتتجه جامعة أوفا للعلوم والتكنولوجيا خصوصًا نحو الهندسة والمعلوماتية والتقنيات الصناعية والعلوم التطبيقية.",
+  "🇧🇾 République de Biélorussie": "🇧🇾 جمهورية بيلاروسيا",
+  "Université d’État de Biélorussie": "جامعة بيلاروسيا الحكومية",
+  "C’est une grande université publique et l’un des établissements les plus connus du pays. Elle propose des formations en informatique, mathématiques, sciences, économie et autres disciplines. Minsk offre également davantage de possibilités de stages et d’activités professionnelles.": "جامعة عمومية كبيرة وإحدى أشهر المؤسسات في البلاد. تقدم تكوينات في المعلوماتية والرياضيات والعلوم والاقتصاد وتخصصات أخرى. كما توفر مينسك فرصًا أكبر للتدريب والأنشطة المهنية.",
+  "Coût de vie modéré": "تكلفة معيشة معتدلة",
+  "Environnement calme & sûr": "بيئة هادئة وآمنة",
+  "Formations médicales réputées": "تكوينات طبية مرموقة",
+  "Université technique d’État de Brest": "جامعة بريست التقنية الحكومية",
+  "Elle est principalement orientée vers les sciences techniques et l’ingénierie. Elle peut être intéressante pour les étudiants qui souhaitent étudier l’informatique, les technologies, les systèmes techniques ou les domaines liés à l’industrie.": "تتجه أساسًا نحو العلوم التقنية والهندسة. وقد تناسب الطلبة الراغبين في دراسة المعلوماتية والتكنولوجيا والأنظمة التقنية أو المجالات المرتبطة بالصناعة.",
+  "Université d’État Yanka-Kupala de Grodno": "جامعة يانكا كوبالا الحكومية في غرودنو",
+  "C’est une université publique pluridisciplinaire qui propose des formations en informatique, ingénierie, sciences, économie et langues. Grodno est une ville relativement compacte, qui peut convenir aux étudiants recherchant un cadre de vie plus calme que la capitale.": "جامعة عمومية متعددة التخصصات تقدم تكوينات في المعلوماتية والهندسة والعلوم والاقتصاد واللغات. وغرودنو مدينة صغيرة نسبيًا، قد تناسب الطلبة الباحثين عن حياة أكثر هدوءًا من العاصمة.",
+  "Besoin d'un accompagnement personnalisé ?": "هل تحتاج إلى مواكبة شخصية؟",
+  "Nos conseillers vous reçoivent sur rendez-vous ou répondent immédiatement à vos interrogations sur WhatsApp.": "يستقبلك مستشارونا بموعد مسبق أو يجيبون عن استفساراتك فورًا عبر واتساب.",
+  "Demander une consultation gratuite": "اطلب استشارة مجانية",
+  "Contacter par WhatsApp : +212 629 713 827": "تواصل معنا عبر واتساب: ⁦+212 629 713 827⁩",
+  "© 2025 Visa Study Maroc. Tous droits réservés.": "© 2025 فيزا ستدي المغرب. جميع الحقوق محفوظة.",
+  "Accompagnement universitaire officiel • Maroc • Russie • Biélorussie": "مواكبة جامعية رسمية • المغرب • روسيا • بيلاروسيا"
+ }
+};
+  const TITLES = {"en": {"Destinations – Visa Study Maroc": "Destinations – Visa Study Morocco"}, "ar": {"Destinations – Visa Study Maroc": "الوجهات – فيزا ستدي المغرب"}};
+  const originals = new WeakMap();      /* textes d'origine (FR) */
+  const attrOriginals = new WeakMap();  /* attributs d'origine (FR) */
+  const ATTRS = ['alt', 'aria-label', 'placeholder', 'title'];
+  const frTitle = document.title;
+
+  function applyLang(lang) {
+    /* 1. Textes */
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => {
+      if (['SCRIPT', 'STYLE'].includes(n.parentElement.tagName)) return;
+      if (!originals.has(n)) originals.set(n, n.nodeValue);
+      const original = originals.get(n);
+      if (lang === 'fr') { n.nodeValue = original; return; }
+      const key = original.trim().replace(/\s+/g, ' ');
+      const t = DICT[lang][key];
+      if (t) n.nodeValue = original.replace(/\S[\s\S]*\S|\S/, t);
+    });
+    /* 2. Attributs (alt, aria-label, placeholder, title) */
+    document.querySelectorAll('[alt],[aria-label],[placeholder],[title]').forEach(el => {
+      const saved = attrOriginals.get(el) || {};
+      ATTRS.forEach(a => {
+        if (!el.hasAttribute(a)) return;
+        if (!(a in saved)) saved[a] = el.getAttribute(a);
+        const key = saved[a].trim().replace(/\s+/g, ' ');
+        el.setAttribute(a, lang === 'fr' ? saved[a] : (DICT[lang][key] || saved[a]));
+      });
+      attrOriginals.set(el, saved);
+    });
+    /* 3. Titre, langue, sens d'écriture */
+    document.title = lang === 'fr' ? frTitle : ((TITLES[lang] && TITLES[lang][frTitle]) || frTitle);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang button').forEach(b =>
+      b.setAttribute('aria-pressed', b.dataset.lang === lang));
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang button').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+  let saved = 'fr';
+  try { saved = localStorage.getItem('lang') || 'fr'; } catch (e) {}
+  if (saved === 'en' || saved === 'ar') applyLang(saved);
+</script>
+</body>
+</html>
